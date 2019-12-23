@@ -1,0 +1,20 @@
+﻿
+body{
+    background:#808080;
+}
+
+#form1{
+    margin:0;
+}
+
+.divTitle {
+    margin:0 5px 0 5px;
+    background:#000000;
+    color:#ffffff;
+}
+.divMainTitle {
+    text-align:center;
+}
+.divLittleTitle {
+    text-align:right;
+}

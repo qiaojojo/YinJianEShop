@@ -1,0 +1,35 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="YinJianEShop.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>阴间购物网</title>
+    <link rel="stylesheet" type="text/css" href="~/Style/goodsPage.css" >
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="divTitle">
+            <div class="divMainTitle">
+                <h1>
+                    <img src="Images/Page/00BB5A67.png" style="height:50%;opacity:0.4;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    阴&nbsp;间&nbsp;购&nbsp;物&nbsp;网
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="Images/Page/00BB521A.png" style="height:50%;opacity:0.4;" />
+                </h1>
+            </div>
+        <div class="divLittleTitle">
+            <p>人生何须久睡 死后自会长眠</p>
+        </div>
+    </div>
+        <div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
