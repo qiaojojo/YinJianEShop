@@ -43,7 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -67,16 +75,55 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="eShopDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>eShopDB.Context.cs</LastGenOutput>
+      <DependentUpon>eShopDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="eShopDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>eShopDB.edmx</DependentUpon>
+      <LastGenOutput>eShopDB.cs</LastGenOutput>
+    </Content>
     <Content Include="Images\Page\00BB521A.png" />
     <Content Include="Images\Page\00BB5A67.png" />
     <Content Include="Index.aspx" />
+    <Content Include="js\SellerFrame.js" />
+    <Content Include="Seller\SellerLogin.aspx" />
+    <Content Include="js\jquery-3.4.1.min.js" />
+    <Content Include="Seller\SellerManagement.aspx" />
     <Content Include="Style\login.css" />
     <Content Include="Style\goodsPage.css" />
-    <Content Include="Users\UserLogin.aspx" />
-    <Content Include="Users\UserRegister.aspx" />
+    <Content Include="Style\sellerPage.css" />
+    <Content Include="User\UserLogin.aspx" />
+    <Content Include="User\UserRegister.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="eShopDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>eShopDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="eShopDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>eShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="eShopDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>eShopDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="GoodOrder.cs">
+      <DependentUpon>eShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GoodsImg.cs">
+      <DependentUpon>eShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GoodsInfo.cs">
+      <DependentUpon>eShopDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -84,7 +131,28 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="OrderState.cs">
+      <DependentUpon>eShopDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="pwdMD5\PasswdMD5Locker.cs" />
+    <Compile Include="Sellers.cs">
+      <DependentUpon>eShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Seller\SellerLogin.aspx.cs">
+      <DependentUpon>SellerLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Seller\SellerLogin.aspx.designer.cs">
+      <DependentUpon>SellerLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Seller\SellerManagement.aspx.cs">
+      <DependentUpon>SellerManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Seller\SellerManagement.aspx.designer.cs">
+      <DependentUpon>SellerManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -92,22 +160,44 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="Users\UserLogin.aspx.cs">
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>eShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>eShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>eShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <DependentUpon>eShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserShippingAddress.cs">
+      <DependentUpon>eShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserLogin.aspx.cs">
       <DependentUpon>UserLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Users\UserLogin.aspx.designer.cs">
+    <Compile Include="User\UserLogin.aspx.designer.cs">
       <DependentUpon>UserLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Users\UserRegister.aspx.cs">
+    <Compile Include="User\UserRegister.aspx.cs">
       <DependentUpon>UserRegister.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Users\UserRegister.aspx.designer.cs">
+    <Compile Include="User\UserRegister.aspx.designer.cs">
       <DependentUpon>UserRegister.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="eShopDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>eShopDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="eShopDB.edmx.diagram">
+      <DependentUpon>eShopDB.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Site.Master" />
     <None Include="Web.Debug.config">
@@ -119,8 +209,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\Goods\" />
-    <Folder Include="js\" />
-    <Folder Include="Sellers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

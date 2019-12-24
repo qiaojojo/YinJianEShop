@@ -1,0 +1,12 @@
+C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\Model\bin\Debug\Model.dll.config
+C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\Model\bin\Debug\Model.dll
+C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\Model\bin\Debug\Model.pdb
+C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\Model\bin\Debug\EntityFramework.dll
+C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\Model\bin\Debug\EntityFramework.xml
+C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\Model\obj\Debug\Model.dll
+C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\Model\obj\Debug\Model.pdb

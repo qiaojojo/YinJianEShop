@@ -33,4 +33,9 @@ C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\YinJia
 C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\YinJianEShop\obj\Debug\YinJianEShop.csproj.CopyComplete
 C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\YinJianEShop\obj\Debug\YinJianEShop.dll
 C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\YinJianEShop\obj\Debug\YinJianEShop.pdb
+C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\YinJianEShop\bin\EntityFramework.dll
+C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\YinJianEShop\bin\EntityFramework.SqlServer.dll
+C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\YinJianEShop\bin\EntityFramework.xml
+C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\YinJianEShop\bin\EntityFramework.SqlServer.xml
+C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\YinJianEShop\bin\zh-Hans\EntityFramework.resources.dll
 C:\Users\root\Desktop\测试\项目实训\网上购物系统\YinJianEShop\YinJianEShop\obj\Debug\YinJianEShop.csprojAssemblyReference.cache

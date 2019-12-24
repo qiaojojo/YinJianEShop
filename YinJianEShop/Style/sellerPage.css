@@ -1,0 +1,36 @@
+﻿*{
+    margin:0;
+    padding:0;
+}
+
+
+body {
+    background: #808080;
+}
+
+
+.divPage {
+    margin: 0 5px 0 5px;
+    background: #000000;
+    color: #ffffff;
+}
+.divMainTitle {
+    text-align: center;
+}
+.divLittleTitle {
+    text-align: right;
+}
+
+.divSecend{
+    text-align:center;
+    margin:0 auto;
+    background:#333333;
+}
+.divMenu{
+    display:inline-block;
+    height:auto;
+    width:150px;
+}
+.divFrame {
+    width: 99%;
+}
