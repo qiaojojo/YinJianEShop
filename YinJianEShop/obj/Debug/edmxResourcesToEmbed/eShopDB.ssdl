@@ -16,6 +16,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ImgUrl" Type="nvarchar" MaxLength="100" />
     <Property Name="GoodId" Type="int" />
+    <Property Name="ImgLevel" Type="int" />
   </EntityType>
   <EntityType Name="GoodsInfo">
     <Key>

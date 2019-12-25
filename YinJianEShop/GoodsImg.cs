@@ -17,6 +17,7 @@ namespace YinJianEShop
         public int Id { get; set; }
         public string ImgUrl { get; set; }
         public Nullable<int> GoodId { get; set; }
+        public Nullable<int> ImgLevel { get; set; }
     
         public virtual GoodsInfo GoodsInfo { get; set; }
     }

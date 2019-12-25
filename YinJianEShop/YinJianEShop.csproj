@@ -85,13 +85,18 @@
       <DependentUpon>eShopDB.edmx</DependentUpon>
       <LastGenOutput>eShopDB.cs</LastGenOutput>
     </Content>
+    <Content Include="Images\Goods\大吉大利骨灰盒.jpg" />
     <Content Include="Images\Page\00BB521A.png" />
     <Content Include="Images\Page\00BB5A67.png" />
+    <Content Include="Images\Page\cart.png" />
     <Content Include="Index.aspx" />
+    <Content Include="js\jquery-3.4.1.js" />
+    <Content Include="js\jquery-ui.min.js" />
     <Content Include="js\SellerFrame.js" />
     <Content Include="Seller\SellerLogin.aspx" />
     <Content Include="js\jquery-3.4.1.min.js" />
     <Content Include="Seller\SellerManagement.aspx" />
+    <Content Include="Style\goodsIndexPage.css" />
     <Content Include="Style\login.css" />
     <Content Include="Style\goodsPage.css" />
     <Content Include="Style\sellerPage.css" />
@@ -207,9 +212,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\Goods\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

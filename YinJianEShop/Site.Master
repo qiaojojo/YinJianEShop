@@ -27,10 +27,8 @@
                 <p>人生何须久睡 死后自会长眠</p>
             </div>
         </div>
-        <div>
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
     </div>
     </form>
 </body>

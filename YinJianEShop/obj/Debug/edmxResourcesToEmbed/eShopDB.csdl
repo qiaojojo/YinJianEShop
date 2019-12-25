@@ -19,6 +19,7 @@
     <Property Name="ImgUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="GoodId" Type="Int32" />
     <NavigationProperty Name="GoodsInfo" Relationship="Self.FK__GoodsImg__GoodId__1273C1CD" FromRole="GoodsImg" ToRole="GoodsInfo" />
+    <Property Name="ImgLevel" Type="Int32" />
   </EntityType>
   <EntityType Name="GoodsInfo">
     <Key>

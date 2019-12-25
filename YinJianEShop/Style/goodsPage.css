@@ -4,8 +4,14 @@
 }
 
 
-body{
-    background:#808080;
+body {
+    text-align:center;
+    background: #808080;
+}
+
+.divPage {
+    display: inline-block;
+    width: 1300px;
 }
 
 .divTitle {

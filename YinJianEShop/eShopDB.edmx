@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="eShopDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="eShopDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="GoodOrder">
           <Key>
             <PropertyRef Name="Id" />
@@ -21,6 +21,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ImgUrl" Type="nvarchar" MaxLength="100" />
           <Property Name="GoodId" Type="int" />
+          <Property Name="ImgLevel" Type="int" />
         </EntityType>
         <EntityType Name="GoodsInfo">
           <Key>
@@ -243,8 +244,7 @@
             <End Role="OrderState" EntitySet="OrderState" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="eShopDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -267,6 +267,7 @@
           <Property Name="ImgUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="GoodId" Type="Int32" />
           <NavigationProperty Name="GoodsInfo" Relationship="Self.FK__GoodsImg__GoodId__1273C1CD" FromRole="GoodsImg" ToRole="GoodsInfo" />
+          <Property Name="ImgLevel" Type="Int32" />
         </EntityType>
         <EntityType Name="GoodsInfo">
           <Key>
@@ -529,6 +530,7 @@
           <EntitySetMapping Name="GoodsImg">
             <EntityTypeMapping TypeName="eShopDatabaseModel.GoodsImg">
               <MappingFragment StoreEntitySet="GoodsImg">
+                <ScalarProperty Name="ImgLevel" ColumnName="ImgLevel" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ImgUrl" ColumnName="ImgUrl" />
                 <ScalarProperty Name="GoodId" ColumnName="GoodId" />
