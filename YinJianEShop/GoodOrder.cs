@@ -15,9 +15,9 @@ namespace YinJianEShop
     public partial class GoodOrder
     {
         public int Id { get; set; }
-        public Nullable<System.DateTime> AddDate { get; set; }
         public Nullable<int> GoodId { get; set; }
         public Nullable<int> OrderId { get; set; }
+        public Nullable<int> GoodsNum { get; set; }
     
         public virtual GoodsInfo GoodsInfo { get; set; }
         public virtual OrderState OrderState { get; set; }

@@ -85,6 +85,7 @@
       <DependentUpon>eShopDB.edmx</DependentUpon>
       <LastGenOutput>eShopDB.cs</LastGenOutput>
     </Content>
+    <Content Include="GoodShow.aspx" />
     <Content Include="Images\Goods\大吉大利骨灰盒.jpg" />
     <Content Include="Images\Page\00BB521A.png" />
     <Content Include="Images\Page\00BB5A67.png" />
@@ -96,12 +97,14 @@
     <Content Include="Seller\SellerLogin.aspx" />
     <Content Include="js\jquery-3.4.1.min.js" />
     <Content Include="Seller\SellerManagement.aspx" />
+    <Content Include="Style\goodShowPage.css" />
     <Content Include="Style\goodsIndexPage.css" />
     <Content Include="Style\login.css" />
     <Content Include="Style\goodsPage.css" />
     <Content Include="Style\sellerPage.css" />
     <Content Include="User\UserLogin.aspx" />
     <Content Include="User\UserRegister.aspx" />
+    <Content Include="User\UserShopCart.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +125,13 @@
     </Compile>
     <Compile Include="GoodOrder.cs">
       <DependentUpon>eShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GoodShow.aspx.cs">
+      <DependentUpon>GoodShow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GoodShow.aspx.designer.cs">
+      <DependentUpon>GoodShow.aspx</DependentUpon>
     </Compile>
     <Compile Include="GoodsImg.cs">
       <DependentUpon>eShopDB.tt</DependentUpon>
@@ -193,6 +203,13 @@
     </Compile>
     <Compile Include="User\UserRegister.aspx.designer.cs">
       <DependentUpon>UserRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserShopCart.aspx.cs">
+      <DependentUpon>UserShopCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UserShopCart.aspx.designer.cs">
+      <DependentUpon>UserShopCart.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

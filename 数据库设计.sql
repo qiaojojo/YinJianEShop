@@ -5,6 +5,7 @@ go
 --卖家表
 CREATE TABLE Sellers(
 	Id INT PRIMARY KEY IDENTITY,	--自增主键
+	SellerName NVARCHAR(50),
 	SellerNum	NVARCHAR(50),
 	SellerPasswd NVARCHAR(100),
 	Telephone NVARCHAR(100)
@@ -54,7 +55,7 @@ CREATE TABLE GoodsImg(
 --订单项表
 CREATE TABLE GoodOrder(
 	Id INT PRIMARY KEY IDENTITY,
-	AddedDate DATETIME, 
+	GoodNum INT, 
 	GoodId INT,
 	OrderId INT,
 	FOREIGN KEY(GoodId) REFERENCES GoodsInfo(Id),	--商品id

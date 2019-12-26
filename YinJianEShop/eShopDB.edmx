@@ -10,7 +10,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AddDate" Type="datetime" />
+          <Property Name="GoodsNum" Type="int" />
           <Property Name="GoodId" Type="int" />
           <Property Name="OrderId" Type="int" />
         </EntityType>
@@ -20,8 +20,8 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ImgUrl" Type="nvarchar" MaxLength="100" />
-          <Property Name="GoodId" Type="int" />
           <Property Name="ImgLevel" Type="int" />
+          <Property Name="GoodId" Type="int" />
         </EntityType>
         <EntityType Name="GoodsInfo">
           <Key>
@@ -58,6 +58,7 @@
           <Property Name="SellerNum" Type="nvarchar" MaxLength="50" />
           <Property Name="SellerPasswd" Type="nvarchar" MaxLength="100" />
           <Property Name="Telephone" Type="nvarchar" MaxLength="100" />
+          <Property Name="SellerName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -253,11 +254,11 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AddDate" Type="DateTime" Precision="3" />
           <Property Name="GoodId" Type="Int32" />
           <Property Name="OrderId" Type="Int32" />
           <NavigationProperty Name="GoodsInfo" Relationship="Self.FK__GoodOrder__GoodI__21B6055D" FromRole="GoodOrder" ToRole="GoodsInfo" />
           <NavigationProperty Name="OrderState" Relationship="Self.FK__GoodOrder__Order__22AA2996" FromRole="GoodOrder" ToRole="OrderState" />
+          <Property Name="GoodsNum" Type="Int32" />
         </EntityType>
         <EntityType Name="GoodsImg">
           <Key>
@@ -311,6 +312,7 @@
           <Property Name="SellerPasswd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Telephone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="GoodsInfo" Relationship="Self.FK__GoodsInfo__Adder__0DAF0CB0" FromRole="Sellers" ToRole="GoodsInfo" />
+          <Property Name="SellerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -520,8 +522,8 @@
           <EntitySetMapping Name="GoodOrder">
             <EntityTypeMapping TypeName="eShopDatabaseModel.GoodOrder">
               <MappingFragment StoreEntitySet="GoodOrder">
+                <ScalarProperty Name="GoodsNum" ColumnName="GoodsNum" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="AddDate" ColumnName="AddDate" />
                 <ScalarProperty Name="GoodId" ColumnName="GoodId" />
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
               </MappingFragment>
@@ -569,6 +571,7 @@
           <EntitySetMapping Name="Sellers">
             <EntityTypeMapping TypeName="eShopDatabaseModel.Sellers">
               <MappingFragment StoreEntitySet="Sellers">
+                <ScalarProperty Name="SellerName" ColumnName="SellerName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SellerNum" ColumnName="SellerNum" />
                 <ScalarProperty Name="SellerPasswd" ColumnName="SellerPasswd" />

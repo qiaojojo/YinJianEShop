@@ -24,6 +24,7 @@ namespace YinJianEShop
         public string SellerNum { get; set; }
         public string SellerPasswd { get; set; }
         public string Telephone { get; set; }
+        public string SellerName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GoodsInfo> GoodsInfo { get; set; }

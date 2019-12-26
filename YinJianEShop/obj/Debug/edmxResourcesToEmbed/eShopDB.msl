@@ -53,6 +53,7 @@
     <EntitySetMapping Name="Sellers">
       <EntityTypeMapping TypeName="eShopDatabaseModel.Sellers">
         <MappingFragment StoreEntitySet="Sellers">
+          <ScalarProperty Name="SellerName" ColumnName="SellerName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="SellerNum" ColumnName="SellerNum" />
           <ScalarProperty Name="SellerPasswd" ColumnName="SellerPasswd" />

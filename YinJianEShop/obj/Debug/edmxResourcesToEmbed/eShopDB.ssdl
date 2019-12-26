@@ -15,8 +15,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ImgUrl" Type="nvarchar" MaxLength="100" />
-    <Property Name="GoodId" Type="int" />
     <Property Name="ImgLevel" Type="int" />
+    <Property Name="GoodId" Type="int" />
   </EntityType>
   <EntityType Name="GoodsInfo">
     <Key>
@@ -53,6 +53,7 @@
     <Property Name="SellerNum" Type="nvarchar" MaxLength="50" />
     <Property Name="SellerPasswd" Type="nvarchar" MaxLength="100" />
     <Property Name="Telephone" Type="nvarchar" MaxLength="100" />
+    <Property Name="SellerName" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>

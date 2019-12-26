@@ -6,9 +6,10 @@
 
 <asp:Content ContentPlaceHolderID="MainContent" ID="MainPage" runat="server">
     <div class="divMenu">
-        <asp:ImageButton ID="btnCart" CssClass=".shoppingCart" ImageUrl="/Images/Page/Cart.png" runat="server" />
+        <asp:ImageButton ID="btnCart" CssClass=".shoppingCart" ImageUrl="/Images/Page/Cart.png" runat="server" OnClick="btnCart_Click" />
     </div>
-    <div class="divGoodList" id="divGoodList" runat="server">
+    <%--<div class="divGoodList" id="divGoodList" runat="server">
+        
        <div class="divGood">
             <p><img src="/Images/Goods/大吉大利骨灰盒.jpg" alt="大吉大利骨灰盒" /></p>
             <br>
@@ -16,5 +17,19 @@
             <p>PRICE: $449</p>
             <button class="add-to-cart" type="button" >加入购物车</button>
         </div>
+    </div>--%>
+    <div class="divGoodList" id="divGoodList">
+    <asp:ListView ID="lvGoodList" runat="server">
+        <ItemTemplate>
+            <div class="divGood">
+            <p><a href="/GoodShow.aspx?id=<%# Eval("Id")%>"><img src="<%# Eval("ImgUrl") %>" /></a></p>
+            <br>
+            <h2><%# Eval("GoodName")%></h2>
+            <p>价格：<%# Eval("GoodPrice")%>元</p>
+            <asp:LinkButton ID="btnbuy" CssClass="button" runat="server" Text="立即购买" CommandArgument='<%# Eval("Id") %>' OnClick="btnbuy_Click" />
+            <asp:LinkButton ID="btnAddCart" CssClass="button" runat="server" Text="加入购物车" CommandArgument='<%# Eval("Id") %>' OnClick="btnAddCart_Click" />
+        </div>
+        </ItemTemplate>
+    </asp:ListView>
     </div>
 </asp:Content>

@@ -1,0 +1,23 @@
+﻿.divMenu {
+    text-align: right;
+    background: #000000;
+    margin: 0 5px 0 5px;
+}
+
+
+.divGoodShow table{
+    display:inline-block;
+    text-align:left;
+}
+
+.btn {
+    border: 1px solid #ffffff;
+    padding: 4px 14px;
+    background-color: #000000;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 5px 0;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 50px;
+}

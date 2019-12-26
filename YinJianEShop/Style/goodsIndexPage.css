@@ -1,7 +1,9 @@
-﻿.divMenu{
-    text-align:right;
-    background:#000000;
-    margin:0 5px 0 5px;
+﻿
+
+.divMenu {
+    text-align: right;
+    background: #000000;
+    margin: 0 5px 0 5px;
 }
 
 .divGoodList{
@@ -30,7 +32,7 @@
     width:200px;
     height:200px;
 }
-.divGood button {
+.divGood .button {
     border: 1px solid #ffffff;
     padding: 4px 14px;
     background-color: #000000;
