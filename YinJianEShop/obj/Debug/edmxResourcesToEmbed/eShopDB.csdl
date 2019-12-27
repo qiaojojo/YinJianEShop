@@ -5,11 +5,12 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="AddDate" Type="DateTime" Precision="3" />
     <Property Name="GoodId" Type="Int32" />
     <Property Name="OrderId" Type="Int32" />
     <NavigationProperty Name="GoodsInfo" Relationship="Self.FK__GoodOrder__GoodI__21B6055D" FromRole="GoodOrder" ToRole="GoodsInfo" />
     <NavigationProperty Name="OrderState" Relationship="Self.FK__GoodOrder__Order__22AA2996" FromRole="GoodOrder" ToRole="OrderState" />
+    <Property Name="AddedDate" Type="DateTime" Precision="3" />
+    <Property Name="GoodNum" Type="Int32" />
   </EntityType>
   <EntityType Name="GoodsImg">
     <Key>

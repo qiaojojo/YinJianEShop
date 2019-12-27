@@ -4,8 +4,9 @@
     <EntitySetMapping Name="GoodOrder">
       <EntityTypeMapping TypeName="eShopDatabaseModel.GoodOrder">
         <MappingFragment StoreEntitySet="GoodOrder">
+          <ScalarProperty Name="GoodNum" ColumnName="GoodNum" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
           <ScalarProperty Name="GoodId" ColumnName="GoodId" />
           <ScalarProperty Name="OrderId" ColumnName="OrderId" />
         </MappingFragment>

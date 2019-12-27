@@ -1,0 +1,14 @@
+﻿.divMenu {
+    text-align: right;
+    background: #000000;
+    margin: 0 5px 0 5px;
+}
+
+.divUserCart{
+    margin:10px 0 10px 0;
+    text-align:center;
+}
+
+.divUserCart .gvUserCart{
+    display:inline-block;
+}

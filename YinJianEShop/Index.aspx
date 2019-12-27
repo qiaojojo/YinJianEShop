@@ -8,16 +8,6 @@
     <div class="divMenu">
         <asp:ImageButton ID="btnCart" CssClass=".shoppingCart" ImageUrl="/Images/Page/Cart.png" runat="server" OnClick="btnCart_Click" />
     </div>
-    <%--<div class="divGoodList" id="divGoodList" runat="server">
-        
-       <div class="divGood">
-            <p><img src="/Images/Goods/大吉大利骨灰盒.jpg" alt="大吉大利骨灰盒" /></p>
-            <br>
-            <h2>大吉大利骨灰盒</h2>
-            <p>PRICE: $449</p>
-            <button class="add-to-cart" type="button" >加入购物车</button>
-        </div>
-    </div>--%>
     <div class="divGoodList" id="divGoodList">
     <asp:ListView ID="lvGoodList" runat="server">
         <ItemTemplate>

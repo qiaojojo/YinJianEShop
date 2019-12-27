@@ -17,7 +17,8 @@ namespace YinJianEShop
         public int Id { get; set; }
         public Nullable<int> GoodId { get; set; }
         public Nullable<int> OrderId { get; set; }
-        public Nullable<int> GoodsNum { get; set; }
+        public Nullable<System.DateTime> AddedDate { get; set; }
+        public Nullable<int> GoodNum { get; set; }
     
         public virtual GoodsInfo GoodsInfo { get; set; }
         public virtual OrderState OrderState { get; set; }
