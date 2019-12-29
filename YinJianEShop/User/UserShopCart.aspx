@@ -6,7 +6,7 @@
 
 <asp:Content ContentPlaceHolderID="MainContent" ID="MainPage" runat="server">
     <div class="divMenu">
-        <a href="/Index.aspx">返回首页</a>
+        <a href="/Index.aspx" style="color: #FFFFFF; text-decoration: none">返回首页</a>
         <asp:ImageButton ID="btnCart" CssClass=".shoppingCart" ImageUrl="/Images/Page/Cart.png" runat="server" />
     </div>
     <div class="divUserCart">
