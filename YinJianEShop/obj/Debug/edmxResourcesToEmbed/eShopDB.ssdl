@@ -5,10 +5,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="AddedDate" Type="datetime" />
+    <Property Name="GoodsNum" Type="int" />
     <Property Name="GoodId" Type="int" />
     <Property Name="OrderId" Type="int" />
-    <Property Name="GoodNum" Type="int" />
   </EntityType>
   <EntityType Name="GoodsImg">
     <Key>
@@ -16,8 +15,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ImgUrl" Type="nvarchar" MaxLength="100" />
-    <Property Name="GoodId" Type="int" />
     <Property Name="ImgLevel" Type="int" />
+    <Property Name="GoodId" Type="int" />
   </EntityType>
   <EntityType Name="GoodsInfo">
     <Key>
@@ -35,9 +34,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserId" Type="int" />
-    <Property Name="AddressId" Type="int" />
-    <Property Name="CourierNum" Type="nvarchar" MaxLength="50" />
     <Property Name="OrderState" Type="int" />
     <Property Name="OrderNum" Type="nvarchar" MaxLength="100" />
     <Property Name="RealPay" Type="decimal" Precision="18" Scale="0" />
@@ -45,6 +41,9 @@
     <Property Name="PayDate" Type="datetime" />
     <Property Name="SendDate" Type="datetime" />
     <Property Name="UserGetDate" Type="datetime" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="AddressId" Type="int" />
+    <Property Name="CourierNum" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Sellers">
     <Key>
@@ -78,7 +77,7 @@
     <Property Name="Identification" Type="nvarchar" MaxLength="100" />
     <Property Name="Telephone" Type="nvarchar" MaxLength="100" />
   </EntityType>
-  <EntityType Name="UserShippingAddress">
+  <EntityType Name="UserShoppingAddress">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -88,7 +87,7 @@
     <Property Name="Address" Type="nvarchar" MaxLength="300" />
     <Property Name="UserId" Type="int" />
   </EntityType>
-  <Association Name="FK__GoodOrder__GoodI__47DBAE45">
+  <Association Name="FK__GoodOrder__GoodI__21B6055D">
     <End Role="GoodsInfo" Type="Self.GoodsInfo" Multiplicity="0..1" />
     <End Role="GoodOrder" Type="Self.GoodOrder" Multiplicity="*" />
     <ReferentialConstraint>
@@ -100,7 +99,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__GoodOrder__Order__48CFD27E">
+  <Association Name="FK__GoodOrder__Order__22AA2996">
     <End Role="OrderState" Type="Self.OrderState" Multiplicity="0..1" />
     <End Role="GoodOrder" Type="Self.GoodOrder" Multiplicity="*" />
     <ReferentialConstraint>
@@ -112,7 +111,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__GoodsImg__GoodId__44FF419A">
+  <Association Name="FK__GoodsImg__GoodId__1273C1CD">
     <End Role="GoodsInfo" Type="Self.GoodsInfo" Multiplicity="0..1" />
     <End Role="GoodsImg" Type="Self.GoodsImg" Multiplicity="*" />
     <ReferentialConstraint>
@@ -124,7 +123,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__GoodsInfo__Adder__3E52440B">
+  <Association Name="FK__GoodsInfo__Adder__0DAF0CB0">
     <End Role="Sellers" Type="Self.Sellers" Multiplicity="0..1" />
     <End Role="GoodsInfo" Type="Self.GoodsInfo" Multiplicity="*" />
     <ReferentialConstraint>
@@ -136,39 +135,39 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__OrderStat__Addre__4222D4EF">
-    <End Role="UserShippingAddress" Type="Self.UserShippingAddress" Multiplicity="0..1" />
+  <Association Name="FK__UserShipp__UserI__08EA5793">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="UserShoppingAddress" Type="Self.UserShoppingAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserShoppingAddress">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderState_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
     <End Role="OrderState" Type="Self.OrderState" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="UserShippingAddress">
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderState">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderState_UserShippingAddress">
+    <End Role="UserShoppingAddress" Type="Self.UserShoppingAddress" Multiplicity="0..1" />
+    <End Role="OrderState" Type="Self.OrderState" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserShoppingAddress">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="OrderState">
         <PropertyRef Name="AddressId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__OrderStat__UserI__412EB0B6">
-    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-    <End Role="OrderState" Type="Self.OrderState" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="OrderState">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__UserShipp__UserI__3B75D760">
-    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-    <End Role="UserShippingAddress" Type="Self.UserShippingAddress" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="UserShippingAddress">
-        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -211,34 +210,34 @@
     <EntitySet Name="Sellers" EntityType="Self.Sellers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="UserShippingAddress" EntityType="Self.UserShippingAddress" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__GoodOrder__GoodI__47DBAE45" Association="Self.FK__GoodOrder__GoodI__47DBAE45">
+    <EntitySet Name="UserShoppingAddress" EntityType="Self.UserShoppingAddress" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__GoodOrder__GoodI__21B6055D" Association="Self.FK__GoodOrder__GoodI__21B6055D">
       <End Role="GoodsInfo" EntitySet="GoodsInfo" />
       <End Role="GoodOrder" EntitySet="GoodOrder" />
     </AssociationSet>
-    <AssociationSet Name="FK__GoodOrder__Order__48CFD27E" Association="Self.FK__GoodOrder__Order__48CFD27E">
+    <AssociationSet Name="FK__GoodOrder__Order__22AA2996" Association="Self.FK__GoodOrder__Order__22AA2996">
       <End Role="OrderState" EntitySet="OrderState" />
       <End Role="GoodOrder" EntitySet="GoodOrder" />
     </AssociationSet>
-    <AssociationSet Name="FK__GoodsImg__GoodId__44FF419A" Association="Self.FK__GoodsImg__GoodId__44FF419A">
+    <AssociationSet Name="FK__GoodsImg__GoodId__1273C1CD" Association="Self.FK__GoodsImg__GoodId__1273C1CD">
       <End Role="GoodsInfo" EntitySet="GoodsInfo" />
       <End Role="GoodsImg" EntitySet="GoodsImg" />
     </AssociationSet>
-    <AssociationSet Name="FK__GoodsInfo__Adder__3E52440B" Association="Self.FK__GoodsInfo__Adder__3E52440B">
+    <AssociationSet Name="FK__GoodsInfo__Adder__0DAF0CB0" Association="Self.FK__GoodsInfo__Adder__0DAF0CB0">
       <End Role="Sellers" EntitySet="Sellers" />
       <End Role="GoodsInfo" EntitySet="GoodsInfo" />
     </AssociationSet>
-    <AssociationSet Name="FK__OrderStat__Addre__4222D4EF" Association="Self.FK__OrderStat__Addre__4222D4EF">
-      <End Role="UserShippingAddress" EntitySet="UserShippingAddress" />
-      <End Role="OrderState" EntitySet="OrderState" />
+    <AssociationSet Name="FK__UserShipp__UserI__08EA5793" Association="Self.FK__UserShipp__UserI__08EA5793">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserShoppingAddress" EntitySet="UserShoppingAddress" />
     </AssociationSet>
-    <AssociationSet Name="FK__OrderStat__UserI__412EB0B6" Association="Self.FK__OrderStat__UserI__412EB0B6">
+    <AssociationSet Name="FK_OrderState_Users" Association="Self.FK_OrderState_Users">
       <End Role="Users" EntitySet="Users" />
       <End Role="OrderState" EntitySet="OrderState" />
     </AssociationSet>
-    <AssociationSet Name="FK__UserShipp__UserI__3B75D760" Association="Self.FK__UserShipp__UserI__3B75D760">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="UserShippingAddress" EntitySet="UserShippingAddress" />
+    <AssociationSet Name="FK_OrderState_UserShippingAddress" Association="Self.FK_OrderState_UserShippingAddress">
+      <End Role="UserShoppingAddress" EntitySet="UserShoppingAddress" />
+      <End Role="OrderState" EntitySet="OrderState" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

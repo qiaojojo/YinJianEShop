@@ -7,16 +7,17 @@
 <asp:Content ContentPlaceHolderID="MainContent" ID="MainPage" runat="server">
     <div class="divMenu">
         <a href="/Index.aspx">返回首页</a>
-        <asp:ImageButton ID="btnCart" CssClass=".shoppingCart" ImageUrl="/Images/Page/Cart.png" runat="server" />
+        <a href="/User/UserShopCart.aspx"><img Class=".shoppingCart" src="/Images/Page/Cart.png" /></a>
     </div>
     
     <div class="divGoodOrder">
         <div class="divUserAddress">
             <h2>收货地址</h2>
+            <asp:Label ID="labMessege" runat="server" Text="" ForeColor="Red"></asp:Label><br />
             <asp:RadioButtonList ID="rblUserAddress" CssClass="gvUserCart" runat="server"></asp:RadioButtonList>
         </div><br />
         <h2>订单详情</h2>
-        <asp:GridView ID="gvUserGoodOrder" CssClass="gvUserCart" runat="server"  DataKeyNames="Id" OnRowCommand="gvUserCart_RowCommand">
+        <asp:GridView ID="gvUserGoodOrder" CssClass="gvUserCart" runat="server" >
             <Columns>
                 <asp:BoundField DataField="GoodName" HeaderText="商品名" />
                 <asp:TemplateField HeaderText="图片预览">
@@ -26,7 +27,7 @@
                 </asp:TemplateField>
                 <asp:BoundField DataField="GoodPrice" HeaderText="单价" />
                 <asp:BoundField DataField="GoodNum" HeaderText="数量" />
-                <asp:BoundField DataField="GoodsPrice" HeaderText="价格" />
+                <asp:BoundField DataField="GoodsPrice" HeaderText="价格" />           
             </Columns>
         </asp:GridView>
         <br />

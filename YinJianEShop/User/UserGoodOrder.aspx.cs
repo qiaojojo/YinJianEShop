@@ -9,24 +9,24 @@ namespace YinJianEShop.User
 {
     public partial class UserGoodOrder : System.Web.UI.Page
     {
-        
+         eShopDatabaseEntities eShop = new eShopDatabaseEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["User"]==null)
+            {
+                Response.Redirect("/User/UserLogin.aspx");
+            }
             if(Request.Cookies["ShoppingCart"]==null)
             {
                 Response.Redirect("/Index.aspx");
             }
-            if(Session["User"]==null)
-            {
-                Response.Redirect("/User/UserLogin.aspx");
-            }
             
-            Users user = Session["User"] as Users;
-            eShopDatabaseEntities eShop = new eShopDatabaseEntities();
+
+            //eShopDatabaseEntities eShop = new eShopDatabaseEntities();
 
             //加载收件人地址
             var queryAddress = from userShoppingAddress in eShop.UserShoppingAddress
-                               where userShoppingAddress.UserId == user.Id
+                               where userShoppingAddress.UserId == ((Users)Session["User"]).Id
                                select new
                                {
                                    AddressId = userShoppingAddress.Id,
@@ -80,17 +80,17 @@ namespace YinJianEShop.User
 
         protected void btnPostOrder_Click(object sender, EventArgs e)
         {
-            if(this.rblUserAddress.SelectedValue!=null)
+            if (this.rblUserAddress.SelectedValue != null)
             {
-                eShopDatabaseEntities eShop = new eShopDatabaseEntities();
+               
 
                 //创建订单对象
                 OrderState order = new OrderState();
                 order.OrderNum = DateTime.Now.ToString("yyyyMMddhhmmss") + ((Users)Session["User"]).Id;
                 order.CreateDate = DateTime.Now;
-                order.UserId= ((Users)Session["User"]).Id;
+                order.OrderState1 = 0;
                 order.AddressId = int.Parse(this.rblUserAddress.SelectedValue);
-                
+
                 //创建商品订单对象
                 GoodOrder goodOrder;
                 foreach (string item in Request.Cookies["ShoppingCart"].Values)
@@ -102,10 +102,22 @@ namespace YinJianEShop.User
                 }
 
                 //添加用户订单
-                Users user = new Users();
+                var queryAddUserOrder = from user in eShop.Users
+                                        where user.Id == ((Users)Session["User"]).Id
+                                        select user;
+                queryAddUserOrder.FirstOrDefault().OrderState.Add(order);
+                eShop.SaveChanges();
 
-                user.Id = ((Users)Session["User"]).Id;
-                user.OrderState.Add(order);
+                //清除所有购物车cookie
+                Helper.CookieHelper.RemoveCookie();
+
+
+
+                Response.Redirect("/User/UserPayOrder.aspx?id="+order.Id);
+            }
+            else
+            {
+                this.labMessege.Text = "请选择收货地址！";
             }
         }
     }

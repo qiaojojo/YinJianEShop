@@ -63,6 +63,9 @@ namespace YinJianEShop.Helper
 
             cookie.Values.Remove(goodId.ToString());
             cookie.Values.Add(goodId.ToString(), goodId + "|" + goodNum + "|");
+
+            cookie.Expires = DateTime.Now.AddDays(7);
+            HttpContext.Current.Response.AppendCookie(cookie);
         }
 
         public static void DeleteCookie(int goodId)
@@ -78,6 +81,23 @@ namespace YinJianEShop.Helper
             }
 
             cookie.Values.Remove(goodId.ToString());
+            HttpContext.Current.Response.AppendCookie(cookie);
+        }
+
+        public static void RemoveCookie()
+        {
+            HttpCookie cookie = null;
+            if (HttpContext.Current.Request.Cookies["ShoppingCart"] == null)
+            {
+                return;
+            }
+            else
+            {
+                cookie = HttpContext.Current.Request.Cookies["ShoppingCart"];
+            }
+            //设置cookie过期时间为立即
+            cookie.Expires = DateTime.Now;
+            HttpContext.Current.Response.AppendCookie(cookie);
         }
     }
 }

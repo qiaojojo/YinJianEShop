@@ -106,6 +106,7 @@
     <Content Include="Style\userShopCart.css" />
     <Content Include="User\UserGoodOrder.aspx" />
     <Content Include="User\UserLogin.aspx" />
+    <Content Include="User\UserPayOrder.aspx" />
     <Content Include="User\UserRegister.aspx" />
     <Content Include="User\UserShopCart.aspx" />
     <Content Include="Web.config" />
@@ -207,6 +208,13 @@
     </Compile>
     <Compile Include="User\UserLogin.aspx.designer.cs">
       <DependentUpon>UserLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserPayOrder.aspx.cs">
+      <DependentUpon>UserPayOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UserPayOrder.aspx.designer.cs">
+      <DependentUpon>UserPayOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\UserRegister.aspx.cs">
       <DependentUpon>UserRegister.aspx</DependentUpon>

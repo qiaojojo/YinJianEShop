@@ -31,3 +31,8 @@
         border-radius: 50px;
     }
 
+    .divGoodOrder .divUserAddress {
+        display: inline-block;
+        width: 75%;
+        border: 4px double #FFFFFF;
+    }

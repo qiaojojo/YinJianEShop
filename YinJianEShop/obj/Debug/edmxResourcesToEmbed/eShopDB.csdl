@@ -9,8 +9,7 @@
     <Property Name="OrderId" Type="Int32" />
     <NavigationProperty Name="GoodsInfo" Relationship="Self.FK__GoodOrder__GoodI__21B6055D" FromRole="GoodOrder" ToRole="GoodsInfo" />
     <NavigationProperty Name="OrderState" Relationship="Self.FK__GoodOrder__Order__22AA2996" FromRole="GoodOrder" ToRole="OrderState" />
-    <Property Name="AddedDate" Type="DateTime" Precision="3" />
-    <Property Name="GoodNum" Type="Int32" />
+    <Property Name="GoodsNum" Type="Int32" />
   </EntityType>
   <EntityType Name="GoodsImg">
     <Key>
@@ -53,7 +52,7 @@
     <Property Name="CourierNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="GoodOrder" Relationship="Self.FK__GoodOrder__Order__22AA2996" FromRole="OrderState" ToRole="GoodOrder" />
     <NavigationProperty Name="Users" Relationship="Self.FK_OrderState_Users" FromRole="OrderState" ToRole="Users" />
-    <NavigationProperty Name="UserShippingAddress" Relationship="Self.FK_OrderState_UserShippingAddress" FromRole="OrderState" ToRole="UserShippingAddress" />
+    <NavigationProperty Name="UserShoppingAddress" Relationship="eShopDatabaseModel.FK_OrderState_UserShippingAddress" FromRole="OrderState" ToRole="UserShoppingAddress" />
   </EntityType>
   <EntityType Name="Sellers">
     <Key>
@@ -88,19 +87,7 @@
     <Property Name="Identification" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Telephone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="OrderState" Relationship="Self.FK_OrderState_Users" FromRole="Users" ToRole="OrderState" />
-    <NavigationProperty Name="UserShippingAddress" Relationship="Self.FK__UserShipp__UserI__08EA5793" FromRole="Users" ToRole="UserShippingAddress" />
-  </EntityType>
-  <EntityType Name="UserShippingAddress">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Receiver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Telephone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <Property Name="UserId" Type="Int32" />
-    <NavigationProperty Name="OrderState" Relationship="Self.FK_OrderState_UserShippingAddress" FromRole="UserShippingAddress" ToRole="OrderState" />
-    <NavigationProperty Name="Users" Relationship="Self.FK__UserShipp__UserI__08EA5793" FromRole="UserShippingAddress" ToRole="Users" />
+    <NavigationProperty Name="UserShoppingAddress" Relationship="eShopDatabaseModel.FK__UserShipp__UserI__08EA5793" FromRole="Users" ToRole="UserShoppingAddress" />
   </EntityType>
   <Association Name="FK__GoodOrder__GoodI__21B6055D">
     <End Role="GoodsInfo" Type="Self.GoodsInfo" Multiplicity="0..1" />
@@ -162,30 +149,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_OrderState_UserShippingAddress">
-    <End Role="UserShippingAddress" Type="Self.UserShippingAddress" Multiplicity="0..1" />
-    <End Role="OrderState" Type="Self.OrderState" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserShippingAddress">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="OrderState">
-        <PropertyRef Name="AddressId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__UserShipp__UserI__08EA5793">
-    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-    <End Role="UserShippingAddress" Type="Self.UserShippingAddress" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="UserShippingAddress">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="eShopDatabaseEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="GoodOrder" EntityType="Self.GoodOrder" />
     <EntitySet Name="GoodsImg" EntityType="Self.GoodsImg" />
@@ -194,7 +157,6 @@
     <EntitySet Name="Sellers" EntityType="Self.Sellers" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="Users" EntityType="Self.Users" />
-    <EntitySet Name="UserShippingAddress" EntityType="Self.UserShippingAddress" />
     <AssociationSet Name="FK__GoodOrder__GoodI__21B6055D" Association="Self.FK__GoodOrder__GoodI__21B6055D">
       <End Role="GoodsInfo" EntitySet="GoodsInfo" />
       <End Role="GoodOrder" EntitySet="GoodOrder" />
@@ -214,14 +176,6 @@
     <AssociationSet Name="FK_OrderState_Users" Association="Self.FK_OrderState_Users">
       <End Role="Users" EntitySet="Users" />
       <End Role="OrderState" EntitySet="OrderState" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderState_UserShippingAddress" Association="Self.FK_OrderState_UserShippingAddress">
-      <End Role="UserShippingAddress" EntitySet="UserShippingAddress" />
-      <End Role="OrderState" EntitySet="OrderState" />
-    </AssociationSet>
-    <AssociationSet Name="FK__UserShipp__UserI__08EA5793" Association="Self.FK__UserShipp__UserI__08EA5793">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="UserShippingAddress" EntitySet="UserShippingAddress" />
     </AssociationSet>
     <FunctionImport Name="sp_alterdiagram">
       <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -253,6 +207,15 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="UserShoppingAddress" EntityType="eShopDatabaseModel.UserShoppingAddress" />
+    <AssociationSet Name="FK_OrderState_UserShippingAddress" Association="eShopDatabaseModel.FK_OrderState_UserShippingAddress">
+      <End Role="UserShoppingAddress" EntitySet="UserShoppingAddress" />
+      <End Role="OrderState" EntitySet="OrderState" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserShipp__UserI__08EA5793" Association="eShopDatabaseModel.FK__UserShipp__UserI__08EA5793">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserShoppingAddress" EntitySet="UserShoppingAddress" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -265,4 +228,40 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <EntityType Name="UserShoppingAddress">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Receiver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telephone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" />
+    <NavigationProperty Name="OrderState" Relationship="eShopDatabaseModel.FK_OrderState_UserShippingAddress" FromRole="UserShoppingAddress" ToRole="OrderState" />
+    <NavigationProperty Name="Users" Relationship="eShopDatabaseModel.FK__UserShipp__UserI__08EA5793" FromRole="UserShoppingAddress" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK_OrderState_UserShippingAddress">
+    <End Type="eShopDatabaseModel.UserShoppingAddress" Role="UserShoppingAddress" Multiplicity="0..1" />
+    <End Type="eShopDatabaseModel.OrderState" Role="OrderState" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserShoppingAddress">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderState">
+        <PropertyRef Name="AddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserShipp__UserI__08EA5793">
+    <End Type="eShopDatabaseModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="eShopDatabaseModel.UserShoppingAddress" Role="UserShoppingAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserShoppingAddress">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

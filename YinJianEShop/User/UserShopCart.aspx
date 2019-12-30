@@ -7,7 +7,7 @@
 <asp:Content ContentPlaceHolderID="MainContent" ID="MainPage" runat="server">
     <div class="divMenu">
         <a href="/Index.aspx">返回首页</a>
-        <asp:ImageButton ID="btnCart" CssClass=".shoppingCart" ImageUrl="/Images/Page/Cart.png" runat="server" />
+       <a href="/User/UserShopCart.aspx"><img Class=".shoppingCart" src="/Images/Page/Cart.png" /></a>
     </div>
     <div class="divUserCart">
         <asp:Label ID="labMessege" runat="server" Text=""></asp:Label>
