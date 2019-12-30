@@ -10,7 +10,7 @@
 namespace YinJianEShop.User {
     
     
-    public partial class UserShopCart {
+    public partial class UserGoodOrder {
         
         /// <summary>
         /// btnCart 控件。
@@ -22,30 +22,39 @@ namespace YinJianEShop.User {
         protected global::System.Web.UI.WebControls.ImageButton btnCart;
         
         /// <summary>
-        /// labMessege 控件。
+        /// rblUserAddress 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labMessege;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblUserAddress;
         
         /// <summary>
-        /// gvUserCart 控件。
+        /// gvUserGoodOrder 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvUserCart;
+        protected global::System.Web.UI.WebControls.GridView gvUserGoodOrder;
         
         /// <summary>
-        /// btnBuy 控件。
+        /// labPriceSum 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuy;
+        protected global::System.Web.UI.WebControls.Label labPriceSum;
+        
+        /// <summary>
+        /// btnPostOrder 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPostOrder;
     }
 }

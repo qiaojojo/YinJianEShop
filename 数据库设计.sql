@@ -23,7 +23,7 @@ CREATE TABLE Users(
 )
 
 --用户收货地址表
-CREATE TABLE UserShippingAddress(
+CREATE TABLE UserShoppingAddress(
 	Id INT PRIMARY KEY IDENTITY,
 	Receiver NVARCHAR(50),
 	Telephone NVARCHAR(100),
@@ -76,6 +76,6 @@ CREATE TABLE OrderState(
 	SendDate DATETIME,
 	UserGetDate DATETIME,
 	FOREIGN KEY(UserId) REFERENCES Users(Id),
-	FOREIGN KEY(AddressId) REFERENCES UserShippingAddress(Id),
+	FOREIGN KEY(AddressId) REFERENCES UserShoppingAddress(Id),
 )
 

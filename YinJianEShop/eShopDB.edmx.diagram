@@ -12,14 +12,14 @@
         <EntityTypeShape EntityType="eShopDatabaseModel.Sellers" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="eShopDatabaseModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="eShopDatabaseModel.Users" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="eShopDatabaseModel.UserShippingAddress" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
         <AssociationConnector Association="eShopDatabaseModel.FK__GoodOrder__GoodI__21B6055D" ManuallyRouted="false" />
         <AssociationConnector Association="eShopDatabaseModel.FK__GoodOrder__Order__22AA2996" ManuallyRouted="false" />
         <AssociationConnector Association="eShopDatabaseModel.FK__GoodsImg__GoodId__1273C1CD" ManuallyRouted="false" />
         <AssociationConnector Association="eShopDatabaseModel.FK__GoodsInfo__Adder__0DAF0CB0" ManuallyRouted="false" />
         <AssociationConnector Association="eShopDatabaseModel.FK_OrderState_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="eShopDatabaseModel.FK_OrderState_UserShippingAddress" ManuallyRouted="false" />
-        <AssociationConnector Association="eShopDatabaseModel.FK__UserShipp__UserI__08EA5793" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="eShopDatabaseModel.UserShoppingAddress" Width="1.5" PointX="3" PointY="5.25" />
+        <AssociationConnector Association="eShopDatabaseModel.FK_OrderState_UserShippingAddress" />
+        <AssociationConnector Association="eShopDatabaseModel.FK__UserShipp__UserI__08EA5793" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

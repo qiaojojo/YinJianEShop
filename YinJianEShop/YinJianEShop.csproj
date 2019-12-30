@@ -102,7 +102,9 @@
     <Content Include="Style\login.css" />
     <Content Include="Style\goodsPage.css" />
     <Content Include="Style\sellerPage.css" />
+    <Content Include="Style\userGoodOrder.css" />
     <Content Include="Style\userShopCart.css" />
+    <Content Include="User\UserGoodOrder.aspx" />
     <Content Include="User\UserLogin.aspx" />
     <Content Include="User\UserRegister.aspx" />
     <Content Include="User\UserShopCart.aspx" />
@@ -189,8 +191,15 @@
     <Compile Include="Users.cs">
       <DependentUpon>eShopDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="UserShippingAddress.cs">
+    <Compile Include="UserShoppingAddress.cs">
       <DependentUpon>eShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserGoodOrder.aspx.cs">
+      <DependentUpon>UserGoodOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UserGoodOrder.aspx.designer.cs">
+      <DependentUpon>UserGoodOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\UserLogin.aspx.cs">
       <DependentUpon>UserLogin.aspx</DependentUpon>

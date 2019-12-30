@@ -18,7 +18,7 @@ namespace YinJianEShop
         public Users()
         {
             this.OrderState = new HashSet<OrderState>();
-            this.UserShippingAddress = new HashSet<UserShippingAddress>();
+            this.UserShoppingAddress = new HashSet<UserShoppingAddress>();
         }
     
         public int Id { get; set; }
@@ -32,6 +32,6 @@ namespace YinJianEShop
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderState> OrderState { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserShippingAddress> UserShippingAddress { get; set; }
+        public virtual ICollection<UserShoppingAddress> UserShoppingAddress { get; set; }
     }
 }

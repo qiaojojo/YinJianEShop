@@ -48,5 +48,36 @@ namespace YinJianEShop.Helper
             cookie.Expires = DateTime.Now.AddDays(7);
             HttpContext.Current.Response.Cookies.Add(cookie);
         }
+
+        public static void ChangeCookie(int goodId,int goodNum)
+        {
+            HttpCookie cookie = null;
+            if (HttpContext.Current.Request.Cookies["ShoppingCart"] == null)
+            {
+                return;
+            }
+            else
+            {
+                cookie = HttpContext.Current.Request.Cookies["ShoppingCart"];
+            }
+
+            cookie.Values.Remove(goodId.ToString());
+            cookie.Values.Add(goodId.ToString(), goodId + "|" + goodNum + "|");
+        }
+
+        public static void DeleteCookie(int goodId)
+        {
+            HttpCookie cookie = null;
+            if (HttpContext.Current.Request.Cookies["ShoppingCart"] == null)
+            {
+                return;
+            }
+            else
+            {
+                cookie = HttpContext.Current.Request.Cookies["ShoppingCart"];
+            }
+
+            cookie.Values.Remove(goodId.ToString());
+        }
     }
 }
