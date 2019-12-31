@@ -16,8 +16,9 @@
     .divGoodOrder .gvUserCart {
         display: inline-block;
     }
-    .divGoodOrder .UserSure{
+    .divGoodOrder .divUserSure{
         float:right;
+        text-align:left;
     }
     .divGoodOrder .button {
         border: 1px solid #ffffff;

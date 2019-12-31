@@ -10,7 +10,26 @@
         <a href="/User/UserShopCart.aspx"><img Class=".shoppingCart" src="/Images/Page/Cart.png" /></a>
     </div>
     <div class="divGoodOrder">
-        <asp:GridView ID="gvGoodOrder" runat="server"></asp:GridView>
-
+        <h2>订单详情</h2>
+        <asp:GridView ID="gvGoodOrder" CssClass="gvUserCart" runat="server">
+            <Columns>
+                <asp:BoundField DataField="GoodName" HeaderText="商品名" />
+                <asp:TemplateField HeaderText="图片预览">
+                    <ItemTemplate>
+                        <img src='<%# Eval("ImgUrl") %>' width="150px" height="150px" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:BoundField DataField="GoodPrice" HeaderText="单价" />
+                <asp:BoundField DataField="GoodNum" HeaderText="数量" />
+                <asp:BoundField DataField="GoodsPrice" HeaderText="价格" />           
+            </Columns>
+        </asp:GridView>
+        <br />
+        <div class="divUserSure">
+            <p>总金额：<asp:Label ID="labPriceSum" runat="server" Text="" ForeColor="Red"></asp:Label>元</p>
+            <asp:TextBox ID="txtPayNumber" runat="server" Visible="false"></asp:TextBox><br />
+            <asp:Button ID="btnSurePay" CssClass="button" runat="server" Visible="false" Text="火钱已烧" OnClick="btnSurePay_Click" />
+            <asp:Button ID="btnUserGet" CssClass="button" runat="server" Text="确认到货" Visible="false" OnClick="btnUserGet_Click" />
+        </div>
     </div>
 </asp:Content>

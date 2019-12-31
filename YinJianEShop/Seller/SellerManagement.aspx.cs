@@ -16,7 +16,8 @@ namespace YinJianEShop.Seller
 
         protected void SellerMenu_MenuItemClick(object sender, MenuEventArgs e)
         {
-            Response.Write(this.SellerMenu.SelectedValue);
+            //Response.Write(this.SellerMenu.SelectedValue);
+            this.theSellerFrame.Src = this.SellerMenu.SelectedValue;
         }
     }
 }

@@ -94,6 +94,8 @@
     <Content Include="js\jquery-3.4.1.js" />
     <Content Include="js\jquery-ui.min.js" />
     <Content Include="js\SellerFrame.js" />
+    <Content Include="Seller\SellerAddGood.aspx" />
+    <Content Include="Seller\SellerEditGood.aspx" />
     <Content Include="Seller\SellerLogin.aspx" />
     <Content Include="js\jquery-3.4.1.min.js" />
     <Content Include="Seller\SellerManagement.aspx" />
@@ -104,6 +106,7 @@
     <Content Include="Style\sellerPage.css" />
     <Content Include="Style\userGoodOrder.css" />
     <Content Include="Style\userShopCart.css" />
+    <Content Include="User\UserAllOrder.aspx" />
     <Content Include="User\UserGoodOrder.aspx" />
     <Content Include="User\UserLogin.aspx" />
     <Content Include="User\UserPayOrder.aspx" />
@@ -159,6 +162,20 @@
     <Compile Include="Sellers.cs">
       <DependentUpon>eShopDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Seller\SellerAddGood.aspx.cs">
+      <DependentUpon>SellerAddGood.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Seller\SellerAddGood.aspx.designer.cs">
+      <DependentUpon>SellerAddGood.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Seller\SellerEditGood.aspx.cs">
+      <DependentUpon>SellerEditGood.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Seller\SellerEditGood.aspx.designer.cs">
+      <DependentUpon>SellerEditGood.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Seller\SellerLogin.aspx.cs">
       <DependentUpon>SellerLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -194,6 +211,13 @@
     </Compile>
     <Compile Include="UserShoppingAddress.cs">
       <DependentUpon>eShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserAllOrder.aspx.cs">
+      <DependentUpon>UserAllOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UserAllOrder.aspx.designer.cs">
+      <DependentUpon>UserAllOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\UserGoodOrder.aspx.cs">
       <DependentUpon>UserGoodOrder.aspx</DependentUpon>

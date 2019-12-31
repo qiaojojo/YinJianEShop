@@ -32,7 +32,7 @@
                 <asp:Menu ID="SellerMenu" runat="server" ForeColor="#ffffff" Orientation="Horizontal" OnMenuItemClick="SellerMenu_MenuItemClick">
                     <Items>
                         <asp:MenuItem Text="商品管理" Value="商品管理">
-                            <asp:MenuItem Text="新建商品" Value="新建商品"></asp:MenuItem>
+                            <asp:MenuItem Text="新建商品" Value="/Seller/SellerAddGood.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="编辑商品" Value="编辑商品"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="订单管理" Value="订单管理">

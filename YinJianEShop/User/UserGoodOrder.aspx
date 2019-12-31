@@ -31,7 +31,7 @@
             </Columns>
         </asp:GridView>
         <br />
-        <div class="UserSure">
+        <div class="divUserSure">
             <p>合计：<asp:Label ID="labPriceSum" runat="server" Text="****" ForeColor="Red"></asp:Label>元</p>
             <asp:Button ID="btnPostOrder" CssClass="button" runat="server" Text="确认提交" OnClick="btnPostOrder_Click" />
         </div>
