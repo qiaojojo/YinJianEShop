@@ -41,9 +41,13 @@
                 <Columns>
                     <asp:BoundField DataField="GoodName" HeaderText="商品名" />
                     <asp:BoundField DataField="GoodPrice" HeaderText="商品价格" />
-                    <asp:BoundField DataField="" HeaderText="" />
-                    <asp:BoundField DataField="" HeaderText="" />
-                    <asp:BoundField DataField="" HeaderText="" />
+                    <asp:BoundField DataField="AddedDate" HeaderText="添加时间" />
+                    <asp:BoundField DataField="SellerName" HeaderText="添加人" />
+                    <asp:TemplateField HeaderText="操作">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="lbDelete" runat="server">删除</asp:LinkButton>
+                        </ItemTemplate> 
+                </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </div>
