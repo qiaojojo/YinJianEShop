@@ -13,11 +13,14 @@ namespace YinJianEShop.Seller
         eShopDatabaseEntities eShop = new eShopDatabaseEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Session["Seller"]==null)
+            {
+                this.btnGoodAdd.Visible = false;
+            }
         }
 
-        protected void btnUploadImg_Click(object sender, EventArgs e)
-        {
+        protected void btnGoodAdd_Click(object sender, EventArgs e)
+        { 
             //图片上传
             //判断是否有文件上传
             if (uploadImg.HasFile)
@@ -60,10 +63,6 @@ namespace YinJianEShop.Seller
                     this.labUploadImg.Text = "文件扩展名不合法";
                 }
             }
-        }
-
-        protected void btnGoodAdd_Click(object sender, EventArgs e)
-        {
             GoodsImg goodImg = new GoodsImg();
             goodImg.ImgLevel = 0;
             goodImg.ImgUrl=Server.MapPath("~/Images/Goods/") + this.uploadImg.FileName;

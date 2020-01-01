@@ -95,10 +95,13 @@
     <Content Include="js\jquery-ui.min.js" />
     <Content Include="js\SellerFrame.js" />
     <Content Include="Seller\SellerAddGood.aspx" />
+    <Content Include="Seller\SellerAllOrder.aspx" />
     <Content Include="Seller\SellerEditGood.aspx" />
+    <Content Include="Seller\SellerGoodUpdate.aspx" />
     <Content Include="Seller\SellerLogin.aspx" />
     <Content Include="js\jquery-3.4.1.min.js" />
     <Content Include="Seller\SellerManagement.aspx" />
+    <Content Include="Seller\SellerUnsendOrder.aspx" />
     <Content Include="Style\goodShowPage.css" />
     <Content Include="Style\goodsIndexPage.css" />
     <Content Include="Style\login.css" />
@@ -169,12 +172,26 @@
     <Compile Include="Seller\SellerAddGood.aspx.designer.cs">
       <DependentUpon>SellerAddGood.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Seller\SellerAllOrder.aspx.cs">
+      <DependentUpon>SellerAllOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Seller\SellerAllOrder.aspx.designer.cs">
+      <DependentUpon>SellerAllOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Seller\SellerEditGood.aspx.cs">
       <DependentUpon>SellerEditGood.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Seller\SellerEditGood.aspx.designer.cs">
       <DependentUpon>SellerEditGood.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Seller\SellerGoodUpdate.aspx.cs">
+      <DependentUpon>SellerGoodUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Seller\SellerGoodUpdate.aspx.designer.cs">
+      <DependentUpon>SellerGoodUpdate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Seller\SellerLogin.aspx.cs">
       <DependentUpon>SellerLogin.aspx</DependentUpon>
@@ -189,6 +206,13 @@
     </Compile>
     <Compile Include="Seller\SellerManagement.aspx.designer.cs">
       <DependentUpon>SellerManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Seller\SellerUnsendOrder.aspx.cs">
+      <DependentUpon>SellerUnsendOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Seller\SellerUnsendOrder.aspx.designer.cs">
+      <DependentUpon>SellerUnsendOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

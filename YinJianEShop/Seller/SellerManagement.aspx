@@ -31,13 +31,13 @@
             <div>
                 <asp:Menu ID="SellerMenu" runat="server" ForeColor="#ffffff" Orientation="Horizontal" OnMenuItemClick="SellerMenu_MenuItemClick">
                     <Items>
-                        <asp:MenuItem Text="商品管理" Value="商品管理">
+                        <asp:MenuItem Text="商品管理">
                             <asp:MenuItem Text="新建商品" Value="/Seller/SellerAddGood.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="编辑商品" Value="编辑商品"></asp:MenuItem>
+                            <asp:MenuItem Text="编辑商品" Value="/Seller/SellerEditGood.aspx"></asp:MenuItem>
                         </asp:MenuItem>
-                        <asp:MenuItem Text="订单管理" Value="订单管理">
-                            <asp:MenuItem Text="未发货订单" Value="未发货订单"></asp:MenuItem>
-                            <asp:MenuItem Text="订单记录" Value="订单记录"></asp:MenuItem>
+                        <asp:MenuItem Text="订单管理">
+                            <asp:MenuItem Text="未发货订单" Value="/Seller/SellerUnsendOrder.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="订单记录" Value="/Seller/SellerAllOrder.aspx"></asp:MenuItem>
                         </asp:MenuItem>
                     </Items>
                 </asp:Menu>

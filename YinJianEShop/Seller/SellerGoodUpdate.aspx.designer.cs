@@ -10,16 +10,16 @@
 namespace YinJianEShop.Seller {
     
     
-    public partial class SellerAddGood {
+    public partial class SellerGoodUpdate {
         
         /// <summary>
-        /// formAddGood 控件。
+        /// formGoodUpdate 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formAddGood;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formGoodUpdate;
         
         /// <summary>
         /// txtGoodName 控件。
@@ -58,6 +58,15 @@ namespace YinJianEShop.Seller {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvGoodPrice;
         
         /// <summary>
+        /// imgGoodImg 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage imgGoodImg;
+        
+        /// <summary>
         /// uploadImg 控件。
         /// </summary>
         /// <remarks>
@@ -94,12 +103,30 @@ namespace YinJianEShop.Seller {
         protected global::System.Web.UI.WebControls.TextBox txtRemark;
         
         /// <summary>
-        /// btnGoodAdd 控件。
+        /// labMessenge 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGoodAdd;
+        protected global::System.Web.UI.WebControls.Label labMessenge;
+        
+        /// <summary>
+        /// btnGoodUpdate 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGoodUpdate;
+        
+        /// <summary>
+        /// btnBack 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBack;
     }
 }

@@ -34,24 +34,16 @@ namespace YinJianEShop.User
             
             string passwdMd5 = pwdMD5.PasswdMD5Locker.MD5Encrypt(strUserPasswd);
 
-            var query = from users in eShop.Users
-                        where users.UserNum.Equals(strUserNum) &&
-                            users.UserPasswd.Equals(passwdMd5)
-                        select new
-                        {
-                            users.Id,
-                            users.UserNum,
-                            users.UserPasswd
-                        };
+            var query = from user in eShop.Users
+                        where user.UserNum.Equals(strUserNum) &&
+                            user.UserPasswd.Equals(passwdMd5)
+                        select user;
 
 
             if(query.Count()>0)
             {
-                Users user = new Users();
-                user.Id = query.FirstOrDefault().Id;
-                user.UserNum = query.FirstOrDefault().UserNum;
-                user.UserPasswd = query.FirstOrDefault().UserPasswd;
-                Session["User"] = user;
+                Users user = query.FirstOrDefault();
+                Session["User"] =user;
                 Response.Redirect("~/Index.aspx");
             }
             else

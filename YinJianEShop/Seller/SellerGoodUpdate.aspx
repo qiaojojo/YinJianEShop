@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SellerAddGood.aspx.cs" Inherits="YinJianEShop.Seller.SellerAddGood" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SellerGoodUpdate.aspx.cs" Inherits="YinJianEShop.Seller.SellerGoodUpdate" %>
 
 <!DOCTYPE html>
 
@@ -35,9 +35,9 @@
 </style>
 </head>
 <body>
-    <form id="formAddGood" runat="server">
+    <form id="formGoodUpdate" runat="server">
         <div>
-            <h2>添加商品</h2>
+            <h2>更新商品信息</h2>
             <table>
                 <tr>
                     <td>商品名</td>
@@ -45,7 +45,7 @@
                         <asp:TextBox ID="txtGoodName" runat="server"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:RequiredFieldValidator ID="rfvGoodName" ForeColor="Red" runat="server" ControlToValidate="txtGoodName" ErrorMessage="商品名不能为空！"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvGoodName" ForeColor="Red" runat="server" ControlToValidate="txtGoodName" ErrorMessage="商品名不能为空！" ValidationGroup="formCheck"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -53,18 +53,24 @@
                     <td>
                         <asp:TextBox ID="txtGoodPrice" runat="server"></asp:TextBox></td>
                     <td>
-                        <asp:RequiredFieldValidator ID="rfvGoodPrice" ForeColor="Red" runat="server" ControlToValidate="txtGoodPrice" ErrorMessage="商品价格不能为空！"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvGoodPrice" ForeColor="Red" runat="server" ControlToValidate="txtGoodPrice" ErrorMessage="商品价格不能为空！" ValidationGroup="formCheck"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
-                
                 <tr>
-                    <td>添加图片</td>
+                    <td>预览图片</td>
+                    <td>
+                        <img src="" runat="server" id="imgGoodImg"  width="200" height="200" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>更新图片</td>
                     <td>
                         <asp:FileUpload ID="uploadImg" runat="server" />
                     </td>
                     <td>
                         <asp:Label ID="labUploadImg" ForeColor="Red" runat="server" Text=""></asp:Label>
-                        <asp:RequiredFieldValidator ID="rfvUploadImg" ForeColor="Red" runat="server" ControlToValidate="uploadImg" ErrorMessage="上传图片不能为空！"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvUploadImg" ForeColor="Red" runat="server" ControlToValidate="uploadImg" ErrorMessage="上传图片不能为空！" ValidationGroup="formCheck"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -74,7 +80,9 @@
                     <td></td>
                 </tr>
             </table>
-            <asp:Button ID="btnGoodAdd" runat="server" CssClass="button" Text="添加商品" OnClick="btnGoodAdd_Click" />
+            <asp:Label ID="labMessenge" ForeColor="Red" runat="server" Text=""></asp:Label><br />
+            <asp:Button ID="btnGoodUpdate" runat="server" CssClass="button" Text="更新商品" ValidationGroup="formCheck" OnClick="btnGoodUpdate_Click" />
+            <asp:Button ID="btnBack" runat="server" CssClass="button" Text="返回并取消" OnClick="btnBack_Click" />
         </div>
     </form>
 </body>

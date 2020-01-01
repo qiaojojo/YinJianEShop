@@ -36,19 +36,11 @@ namespace YinJianEShop.Seller
             var query = from sellers in eShop.Sellers
                         where sellers.SellerNum.Equals(strSellerNum) &&
                             sellers.SellerPasswd.Equals(passwdMd5)
-                        select new
-                        {
-                            sellers.Id,
-                            sellers.SellerNum,
-                            sellers.SellerPasswd
-                        };
+                        select sellers;
 
             if(query.Count()>0)
             {
-                Sellers seller = new Sellers();
-                seller.Id = query.FirstOrDefault().Id;
-                seller.SellerNum = query.FirstOrDefault().SellerNum;
-                seller.SellerPasswd = query.FirstOrDefault().SellerPasswd;
+                Sellers seller = query.FirstOrDefault();
                 Session["Seller"] = seller;
                 Response.Redirect("~/Seller/SellerManagement.aspx");
             }

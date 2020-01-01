@@ -26,8 +26,14 @@ body {
     padding:10px 5px 10px 5px;
 }
 
-.Button{
-    background-color:#808080;
-    color:#ffffff;
-    margin:5px;
+.Button {
+    border: 1px solid #ffffff;
+    padding: 4px 14px;
+    background-color: #000000;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 5px 0;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 50px;
 }

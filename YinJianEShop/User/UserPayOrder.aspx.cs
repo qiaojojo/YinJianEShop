@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -79,6 +80,8 @@ namespace YinJianEShop.User
                 order.RealPay = realPay;
                 order.PayDate = DateTime.Now;
 
+                eShop.OrderState.Attach(order);
+                eShop.Entry(order).State = EntityState.Modified;
                 eShop.SaveChanges();
             }
         }
@@ -94,6 +97,8 @@ namespace YinJianEShop.User
             order.OrderState1 = 3;
             order.UserGetDate = DateTime.Now;
 
+            eShop.OrderState.Attach(order);
+            eShop.Entry(order).State = EntityState.Modified;
             eShop.SaveChanges();
 
         }
