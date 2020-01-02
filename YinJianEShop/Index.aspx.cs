@@ -79,5 +79,9 @@ namespace YinJianEShop
         {
             Response.Redirect("/User/UserShopCart.aspx");
         }
+        protected void lbtnAdminLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Seller/SellerLogin.aspx");
+        }
     }
 }

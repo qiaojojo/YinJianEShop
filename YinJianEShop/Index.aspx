@@ -6,7 +6,8 @@
 
 <asp:Content ContentPlaceHolderID="MainContent" ID="MainPage" runat="server">
     <div class="divMenu">
-        <asp:Label ID="labHello" runat="server" Text=""></asp:Label>&nbsp;
+        <asp:Label ID="labHello" ForeColor="White" runat="server" Text=""></asp:Label>&nbsp;
+        <asp:LinkButton ID="lbtnAdminLogin" runat="server" OnClick="lbtnAdminLogin_Click">管理员登录</asp:LinkButton>&nbsp;&nbsp;
         <asp:LinkButton ID="lbtnLogin" runat="server" Visible="true" OnClick="lbtnLogin_Click">登录</asp:LinkButton>&nbsp;&nbsp;
         <asp:LinkButton ID="lbtnRegister" runat="server" Visible="true" OnClick="lbtnRegister_Click">注册</asp:LinkButton>&nbsp;&nbsp;
         <asp:LinkButton ID="lbtnUserOrder" runat="server" Visible="false" OnClick="lbtnUserOrder_Click">订单管理</asp:LinkButton>&nbsp;&nbsp;
