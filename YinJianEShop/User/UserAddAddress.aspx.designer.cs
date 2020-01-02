@@ -7,72 +7,81 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace YinJianEShop {
+namespace YinJianEShop.User {
     
     
-    public partial class Index {
+    public partial class UserAddAddress {
         
         /// <summary>
-        /// labHello 控件。
+        /// gvAddress 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labHello;
+        protected global::System.Web.UI.WebControls.GridView gvAddress;
         
         /// <summary>
-        /// lbtnLogin 控件。
+        /// txtReceiver 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnLogin;
+        protected global::System.Web.UI.WebControls.TextBox txtReceiver;
         
         /// <summary>
-        /// lbtnRegister 控件。
+        /// rfvReceiver 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnRegister;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvReceiver;
         
         /// <summary>
-        /// lbtnUserOrder 控件。
+        /// txtTelephone 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnUserOrder;
+        protected global::System.Web.UI.WebControls.TextBox txtTelephone;
         
         /// <summary>
-        /// lbtnAddress 控件。
+        /// rfvTelephone 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnAddress;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTelephone;
         
         /// <summary>
-        /// btnCart 控件。
+        /// txtAddress 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnCart;
+        protected global::System.Web.UI.WebControls.TextBox txtAddress;
         
         /// <summary>
-        /// lvGoodList 控件。
+        /// rfvAddress 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvGoodList;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAddress;
+        
+        /// <summary>
+        /// btnAddAddress 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddAddress;
     }
 }

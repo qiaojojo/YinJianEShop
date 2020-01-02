@@ -6,33 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <style type="text/css">
-    *{
-        margin:0;
-        padding:0;
-    }
-    body{
-        text-align:center;
-        background:#808080;
-    }
-    form{
-        display:inline-block;
-    }
-    div{
-        color:white;
-    }
-    .button {
-        border: 1px solid #ffffff;
-        padding: 4px 14px;
-        background-color: #000000;
-        color: #ffffff;
-        text-transform: uppercase;
-        margin: 5px 0;
-        font-weight: 400;
-        cursor: pointer;
-        border-radius: 50px;
-    }
-</style>
+    <link type="text/css" rel="/Style/sellerOrderPage.css" />
 </head>
 <body>
     <form id="formAllOrder" runat="server">
@@ -42,7 +16,7 @@
                 订单号搜索<asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
                 <asp:Button ID="btnSearch" CssClass="button" runat="server" Text="搜索" OnClick="btnSearch_Click" />
             </div>
-            <asp:GridView ID="gvAllOrder" runat="server" OnRowDataBound="gvAllOrder_RowDataBound">
+            <asp:GridView ID="gvAllOrder" runat="server" OnRowDataBound="gvAllOrder_RowDataBound" OnRowCommand="gvAllOrder_RowCommand">
                 <Columns>
                     <asp:BoundField DataField="OrderId" HeaderText="订单id" />
                     <asp:BoundField DataField="OrderNum" HeaderText="订单号" />
@@ -53,6 +27,11 @@
                     <asp:BoundField DataField="CourierNum" HeaderText="快递单号" />
                     <asp:BoundField DataField="Address" HeaderText="收货地址" />
                     <asp:BoundField DataField="OrderStatus" HeaderText="订单状态" />
+                    <asp:TemplateField HeaderText="详情">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="lbtnState" runat="server" CommandName="status">详情</asp:LinkButton>
+                        </ItemTemplate> 
+                </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </div>

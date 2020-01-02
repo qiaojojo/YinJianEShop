@@ -35,8 +35,7 @@
                 </tr>
                 <tr>
                     <td height="56" valign="middle" style="text-align:center;" class="ItemLine">
-                        <asp:Button ID="btnBuy" runat="server" CssClass="btn" Text="立即购买" />
-                        <asp:Button ID="btnAddCart" runat="server" CssClass="btn" Text="加入购物车" />
+                        <asp:Button ID="btnAddCart" runat="server" CssClass="button" Text="加入购物车" OnClick="btnAddCart_Click" />
                     </td>
                 </tr>
                 <tr>

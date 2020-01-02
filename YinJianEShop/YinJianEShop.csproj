@@ -101,14 +101,18 @@
     <Content Include="Seller\SellerLogin.aspx" />
     <Content Include="js\jquery-3.4.1.min.js" />
     <Content Include="Seller\SellerManagement.aspx" />
+    <Content Include="Seller\SellerOrderState.aspx" />
     <Content Include="Seller\SellerUnsendOrder.aspx" />
+    <Content Include="Style\addAddress.css" />
     <Content Include="Style\goodShowPage.css" />
     <Content Include="Style\goodsIndexPage.css" />
     <Content Include="Style\login.css" />
     <Content Include="Style\goodsPage.css" />
     <Content Include="Style\sellerPage.css" />
+    <Content Include="Style\sellerOrderPage.css" />
     <Content Include="Style\userGoodOrder.css" />
     <Content Include="Style\userShopCart.css" />
+    <Content Include="User\UserAddAddress.aspx" />
     <Content Include="User\UserAllOrder.aspx" />
     <Content Include="User\UserGoodOrder.aspx" />
     <Content Include="User\UserLogin.aspx" />
@@ -207,6 +211,13 @@
     <Compile Include="Seller\SellerManagement.aspx.designer.cs">
       <DependentUpon>SellerManagement.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Seller\SellerOrderState.aspx.cs">
+      <DependentUpon>SellerOrderState.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Seller\SellerOrderState.aspx.designer.cs">
+      <DependentUpon>SellerOrderState.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Seller\SellerUnsendOrder.aspx.cs">
       <DependentUpon>SellerUnsendOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -235,6 +246,13 @@
     </Compile>
     <Compile Include="UserShoppingAddress.cs">
       <DependentUpon>eShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserAddAddress.aspx.cs">
+      <DependentUpon>UserAddAddress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UserAddAddress.aspx.designer.cs">
+      <DependentUpon>UserAddAddress.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\UserAllOrder.aspx.cs">
       <DependentUpon>UserAllOrder.aspx</DependentUpon>

@@ -11,8 +11,9 @@
     </div>
     <div class="divUserCart">
         <asp:Label ID="labMessege" runat="server" Text=""></asp:Label>
-        <asp:GridView ID="gvUserCart" CssClass="gvUserCart" runat="server"  DataKeyNames="Id" OnRowCommand="gvUserCart_RowCommand">
+        <asp:GridView ID="gvUserCart" CssClass="gvUserCart" runat="server"  DataKeyNames="Id" OnRowCommand="gvUserCart_RowCommand" OnRowDataBound="gvUserCart_RowDataBound">
             <Columns>
+                <asp:BoundField DataField="Id" HeaderText="商品Id" />
                 <asp:BoundField DataField="GoodName" HeaderText="商品名" />
                 <asp:TemplateField HeaderText="图片预览">
                     <ItemTemplate>
@@ -22,6 +23,7 @@
                 <asp:BoundField DataField="GoodPrice" HeaderText="单价" />
                 <asp:BoundField DataField="GoodNum" HeaderText="数量" />
                 <asp:BoundField DataField="GoodsPrice" HeaderText="价格" />
+
                 <asp:TemplateField HeaderText="更改数量">
                         <ItemTemplate>
                             <asp:TextBox ID="strNum" runat="server"></asp:TextBox>

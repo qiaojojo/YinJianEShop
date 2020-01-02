@@ -34,26 +34,50 @@ namespace YinJianEShop
                 this.lvGoodList.DataBind();
                 
             }
-        }
+            if(Session["User"]!=null)
+            {
+                this.lbtnLogin.Visible = false;
+                this.lbtnRegister.Visible = false;
+                this.lbtnUserOrder.Visible = true;
+                this.lbtnAddress.Visible = true;
+                this.btnCart.Visible = true;
 
-        protected void btnCart_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("/User/UserShopCart.aspx");
-        }
-
-        protected void btnbuy_Click(object sender, EventArgs e)
-        {
-            Button buttonBuy = (Button)sender;
-            int i = Convert.ToInt32(buttonBuy.CommandArgument.ToString());
+                this.labHello.Text = "你好！用户 " + ((Users)Session["User"]).UserName;
+            }
         }
 
         protected void btnAddCart_Click(object sender, EventArgs e)
         {
+            if(Session["User"]==null)
+            {
+                Response.Redirect("/User/UserLogin.aspx");
+            }
             Button buttonAddCart = (Button)sender;
             int goodId = Convert.ToInt32(buttonAddCart.CommandArgument.ToString());
 
             CookieHelper.WriteInCookie(goodId, 1);
 
+        }
+
+        protected void lbtnLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/User/UserLogin.aspx");
+        }
+        protected void lbtnRegister_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/User/UserRegister.aspx");
+        }
+        protected void lbtnUserOrder_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/User/UserAllOrder");
+        }
+        protected void lbtnAddress_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/User/UserAddAddress.aspx");
+        }
+        protected void btnCart_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("/User/UserShopCart.aspx");
         }
     }
 }

@@ -1,16 +1,19 @@
-﻿.divMenu {
-    text-align: right;
-    margin: 0 5px 0 5px;
-    background: #000000;
-}
- .divMenu a {
-    color: #FFFFFF;
-    text-decoration: none;
+﻿* {
+    margin: 0;
+    padding: 0;
 }
 
-.divGoodShow table{
-    display:inline-block;
-    text-align:left;
+body {
+    text-align: center;
+    background: #808080;
+}
+
+form {
+    display: inline-block;
+}
+
+div {
+    color: black;
 }
 
 .button {

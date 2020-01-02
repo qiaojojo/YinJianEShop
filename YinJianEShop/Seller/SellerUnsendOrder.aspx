@@ -6,33 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <style type="text/css">
-    *{
-        margin:0;
-        padding:0;
-    }
-    body{
-        text-align:center;
-        background:#808080;
-    }
-    form{
-        display:inline-block;
-    }
-    div{
-        color:white;
-    }
-    .button {
-        border: 1px solid #ffffff;
-        padding: 4px 14px;
-        background-color: #000000;
-        color: #ffffff;
-        text-transform: uppercase;
-        margin: 5px 0;
-        font-weight: 400;
-        cursor: pointer;
-        border-radius: 50px;
-    }
-</style>
+<link type="text/css" rel="/Style/sellerOrderPage.css" />
 </head>
 <body>
     <form id="formUnsendOrder" runat="server">

@@ -7,72 +7,81 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace YinJianEShop {
+namespace YinJianEShop.Seller {
     
     
-    public partial class Index {
+    public partial class SellerOrderState {
         
         /// <summary>
-        /// labHello 控件。
+        /// formOrderState 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labHello;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formOrderState;
         
         /// <summary>
-        /// lbtnLogin 控件。
+        /// gvOrderState 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnLogin;
+        protected global::System.Web.UI.WebControls.GridView gvOrderState;
         
         /// <summary>
-        /// lbtnRegister 控件。
+        /// labPriceSum 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnRegister;
+        protected global::System.Web.UI.WebControls.Label labPriceSum;
         
         /// <summary>
-        /// lbtnUserOrder 控件。
+        /// labStatus 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnUserOrder;
+        protected global::System.Web.UI.WebControls.Label labStatus;
         
         /// <summary>
-        /// lbtnAddress 控件。
+        /// labReceiver 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnAddress;
+        protected global::System.Web.UI.WebControls.Label labReceiver;
         
         /// <summary>
-        /// btnCart 控件。
+        /// labAddress 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnCart;
+        protected global::System.Web.UI.WebControls.Label labAddress;
         
         /// <summary>
-        /// lvGoodList 控件。
+        /// labTelephone 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvGoodList;
+        protected global::System.Web.UI.WebControls.Label labTelephone;
+        
+        /// <summary>
+        /// btnBack 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBack;
     }
 }

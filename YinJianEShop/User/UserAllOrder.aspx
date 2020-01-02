@@ -11,6 +11,10 @@
     </div>
     <div class="divGoodOrder">
         <h2>用户订单</h2>
+        <div>
+            订单号搜索<asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
+            <asp:Button ID="btnSearch" CssClass="button" runat="server" Text="搜索" OnClick="btnSearch_Click" />
+        </div>
         <asp:GridView ID="gvGoodOrder" CssClass="gvUserCart" runat="server" OnRowCommand="gvGoodOrder_RowCommand" OnRowDataBound="gvGoodOrder_RowDataBound" >
             <Columns>
                 <asp:BoundField DataField="OrderId" HeaderText="订单id" />

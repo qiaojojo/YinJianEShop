@@ -31,15 +31,42 @@ namespace YinJianEShop.User
                                       Address = orderState.UserShoppingAddress.Address,
                                       OrderStatus=orderState.OrderState1
                                   };
-            this.gvGoodOrder.DataSource = queryUserOrders;
+            this.gvGoodOrder.DataSource = queryUserOrders.ToList();
             this.gvGoodOrder.DataBind();
         }
+
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            if(this.txtSearch.Text!=null)
+            {
+                var queryUserOrders = from orderState in eShop.OrderState
+                                      where orderState.UserId == ((Users)Session["User"]).Id
+                                      && orderState.OrderNum.Contains(this.txtSearch.Text.Trim())
+                                      orderby orderState.OrderState1 ascending
+                                      select new
+                                      {
+                                          OrderId = orderState.Id,
+                                          OrderNum = orderState.OrderNum,
+                                          CreateDate = orderState.CreateDate,
+                                          PayDate = orderState.PayDate,
+                                          SendDate = orderState.SendDate,
+                                          UserGetDate = orderState.UserGetDate,
+                                          CourierNum = orderState.CourierNum,
+                                          Address = orderState.UserShoppingAddress.Address,
+                                          OrderStatus = orderState.OrderState1
+                                      };
+                this.gvGoodOrder.DataSource = queryUserOrders.ToList();
+                this.gvGoodOrder.DataBind();
+            }
+        }
+
 
         protected void gvGoodOrder_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "status")
             {
-                Response.Redirect("/User/UserGoodOrder.aspx?id=" + e.CommandArgument);
+                Response.Redirect("/User/UserPayOrder.aspx?id=" + e.CommandArgument);
             }
         }
 
@@ -71,5 +98,7 @@ namespace YinJianEShop.User
             }
             
         }
+
+        
     }
 }

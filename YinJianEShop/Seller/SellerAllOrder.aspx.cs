@@ -106,5 +106,13 @@ namespace YinJianEShop.Seller
                 e.Row.Cells[8].Text = null;
             }
         }
+
+        protected void gvAllOrder_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "status")
+            {
+                Response.Redirect("/Seller/SellerOrderState.aspx?id=" + e.CommandArgument);
+            }
+        }
     }
 }

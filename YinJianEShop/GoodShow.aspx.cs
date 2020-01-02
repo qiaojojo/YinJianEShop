@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using YinJianEShop.Helper;
+
 namespace YinJianEShop
 {
     public partial class GoodShow : System.Web.UI.Page
@@ -37,6 +39,17 @@ namespace YinJianEShop
                     this.FormViewItem.DataBind();
                 }
             }
+        }
+
+        protected void btnAddCart_Click(object sender, EventArgs e)
+        {
+            if (Session["User"] == null)
+            {
+                Response.Redirect("/User/UserLogin.aspx");
+            }
+            int goodId = int.Parse(Request.QueryString["id"].ToString());
+
+            CookieHelper.WriteInCookie(goodId, 1);
         }
     }
 }

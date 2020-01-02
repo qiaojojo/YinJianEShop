@@ -23,26 +23,23 @@ namespace YinJianEShop.Helper
             bool flag = true;//标记在购物车中是否存在本次选择的物品
 
             //在购物车的Cookies中查找是否存在这次要选择的物品
-            foreach (string item in cookie.Values)
+
+            if (cookie.Values[goodId.ToString()] != null)
             {
-                if (item.Split('|')[0] == goodId.ToString())
-                {
-                    flag = false;
-                    break;
-                }
+                flag = false;
             }
 
             //如果物品不存在则创建
             //如果物品存在则变更数量
             if (flag)
             {
-                cookie.Values.Add(goodId.ToString(), goodId + "|" + goodNum + "|");
+                cookie.Values.Add(goodId.ToString(), goodNum.ToString());
             }
             else
             {
-                int num = int.Parse(cookie.Values[goodId.ToString()].Split('|')[1]);
+                int num = int.Parse(cookie.Values[goodId.ToString()]);
                 cookie.Values.Remove(goodId.ToString());
-                cookie.Values.Add(goodId.ToString(), goodId + "|" + num + goodNum + "|");
+                cookie.Values.Add(goodId.ToString(), (num + goodNum).ToString());
             }
             //设置过期时间
             cookie.Expires = DateTime.Now.AddDays(7);
@@ -62,7 +59,7 @@ namespace YinJianEShop.Helper
             }
 
             cookie.Values.Remove(goodId.ToString());
-            cookie.Values.Add(goodId.ToString(), goodId + "|" + goodNum + "|");
+            cookie.Values.Add(goodId.ToString(), goodNum.ToString());
 
             cookie.Expires = DateTime.Now.AddDays(7);
             HttpContext.Current.Response.AppendCookie(cookie);
