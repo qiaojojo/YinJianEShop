@@ -31,6 +31,9 @@ body {
     height:auto;
     width:150px;
 }
-.divFrame {
-    width: 99%;
+divFrame{
+    text-align:center;
+}
+.divFrame .iframePage {
+    display: inline-block;
 }

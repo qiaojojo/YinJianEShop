@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-<link type="text/css" rel="/Style/sellerOrderPage.css" />
+<link type="text/css" rel="stylesheet" href="/Style/sellerOrderPage.css" />
 </head>
 <body>
     <form id="formUnsendOrder" runat="server">
@@ -16,7 +16,7 @@
                 订单号搜索:<asp:TextBox ID="txtOrderNum" runat="server"></asp:TextBox>
                 <asp:Button ID="btnSearch" CssClass="button" runat="server" Text="搜索" OnClick="btnSearch_Click" />
             </div>
-            <asp:GridView ID="gvGoodOrder" CssClass="gvUserCart" runat="server" OnRowUpdating="gvGoodOrder_RowUpdating"  >
+            <asp:GridView ID="gvGoodOrder"  BorderColor="Black" CssClass="gvUserCart" runat="server" OnRowUpdating="gvGoodOrder_RowUpdating" AutoGenerateColumns="False"  >
             <Columns>
                 <asp:BoundField DataField="OrderId" HeaderText="订单id" />
                 <asp:TemplateField HeaderText="预览">

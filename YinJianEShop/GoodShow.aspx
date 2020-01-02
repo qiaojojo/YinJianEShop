@@ -14,7 +14,7 @@
         <ItemTemplate>
             <table width="940" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
-                    <td width="442" height="502" rowspan="15" valign="top"><img src="<%# Eval("GoodImg")%>" width="440" height="300" /></td>
+                    <td width="442" height="502" rowspan="15" valign="top"><img src="<%# Eval("GoodImg")%>"  /></td>
                     <td width="2" rowspan="15" valign="top" bgcolor="#000000"></td>
                     <td width="480" height="28" valign="middle" class="ItemLine">商品名称：<asp:Label ID="LaItemName" runat="server" Text='<%# Eval("GoodName")%>'></asp:Label></td>
                 </tr>

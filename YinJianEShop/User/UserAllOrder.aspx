@@ -15,9 +15,9 @@
             订单号搜索<asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
             <asp:Button ID="btnSearch" CssClass="button" runat="server" Text="搜索" OnClick="btnSearch_Click" />
         </div>
-        <asp:GridView ID="gvGoodOrder" CssClass="gvUserCart" runat="server" OnRowCommand="gvGoodOrder_RowCommand" OnRowDataBound="gvGoodOrder_RowDataBound" >
+        <asp:GridView ID="gvGoodOrder"  BorderColor="Black"  CssClass="gvUserCart" runat="server" OnRowCommand="gvGoodOrder_RowCommand" OnRowDataBound="gvGoodOrder_RowDataBound" AutoGenerateColumns="False" >
             <Columns>
-                <asp:BoundField DataField="OrderId" HeaderText="订单id" />
+                <asp:BoundField DataField="Id" HeaderText="订单id" />
                 <asp:BoundField DataField="OrderNum" HeaderText="订单号" />
                 <asp:BoundField DataField="CreateDate" HeaderText="创建日期" />
                 <asp:BoundField DataField="PayDate" HeaderText="付款日期" />
@@ -28,7 +28,7 @@
                 <asp:BoundField DataField="OrderStatus" HeaderText="订单状态" />
                 <asp:TemplateField HeaderText="详情">
                         <ItemTemplate>
-                            <asp:LinkButton ID="lbtnState" runat="server" CommandName="status">详情</asp:LinkButton>
+                            <asp:LinkButton ID="lbtnState" runat="server" CommandName="status" CommandArgument='<%#Eval("Id")%>' >详情</asp:LinkButton>
                         </ItemTemplate> 
                 </asp:TemplateField>
             </Columns>

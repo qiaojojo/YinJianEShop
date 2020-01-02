@@ -27,13 +27,13 @@ namespace YinJianEShop
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<GoodOrder> GoodOrder { get; set; }
         public virtual DbSet<GoodsImg> GoodsImg { get; set; }
         public virtual DbSet<GoodsInfo> GoodsInfo { get; set; }
         public virtual DbSet<OrderState> OrderState { get; set; }
         public virtual DbSet<Sellers> Sellers { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<GoodOrder> GoodOrder { get; set; }
         public virtual DbSet<UserShoppingAddress> UserShoppingAddress { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)

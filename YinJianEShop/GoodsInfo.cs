@@ -17,8 +17,8 @@ namespace YinJianEShop
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public GoodsInfo()
         {
-            this.GoodOrder = new HashSet<GoodOrder>();
             this.GoodsImg = new HashSet<GoodsImg>();
+            this.GoodOrder = new HashSet<GoodOrder>();
         }
     
         public int Id { get; set; }
@@ -29,9 +29,9 @@ namespace YinJianEShop
         public Nullable<int> AdderId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GoodOrder> GoodOrder { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GoodsImg> GoodsImg { get; set; }
         public virtual Sellers Sellers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GoodOrder> GoodOrder { get; set; }
     }
 }

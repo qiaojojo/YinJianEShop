@@ -86,6 +86,8 @@
       <LastGenOutput>eShopDB.cs</LastGenOutput>
     </Content>
     <Content Include="GoodShow.aspx" />
+    <Content Include="Images\Goods\Kyaru.png" />
+    <Content Include="Images\Goods\Kyaru02.png" />
     <Content Include="Images\Goods\大吉大利骨灰盒.jpg" />
     <Content Include="Images\Page\00BB521A.png" />
     <Content Include="Images\Page\00BB5A67.png" />

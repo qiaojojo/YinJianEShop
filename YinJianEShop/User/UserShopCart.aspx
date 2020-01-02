@@ -10,8 +10,8 @@
        <a href="/User/UserShopCart.aspx"><img Class=".shoppingCart" src="/Images/Page/Cart.png" /></a>
     </div>
     <div class="divUserCart">
-        <asp:Label ID="labMessege" runat="server" Text=""></asp:Label>
-        <asp:GridView ID="gvUserCart" CssClass="gvUserCart" runat="server"  DataKeyNames="Id" OnRowCommand="gvUserCart_RowCommand" OnRowDataBound="gvUserCart_RowDataBound">
+        <asp:Label ID="labMessege" runat="server" Text=""></asp:Label><br />
+        <asp:GridView ID="gvUserCart" BorderColor="Black" CssClass="gvUserCart" runat="server"  DataKeyNames="Id" OnRowDataBound="gvUserCart_RowDataBound" AutoGenerateColumns="False" OnRowDeleting="gvUserCart_RowDeleting" OnRowUpdating="gvUserCart_RowUpdating">
             <Columns>
                 <asp:BoundField DataField="Id" HeaderText="商品Id" />
                 <asp:BoundField DataField="GoodName" HeaderText="商品名" />
@@ -21,22 +21,34 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="GoodPrice" HeaderText="单价" />
-                <asp:BoundField DataField="GoodNum" HeaderText="数量" />
-                <asp:BoundField DataField="GoodsPrice" HeaderText="价格" />
+
+                <asp:TemplateField HeaderText="数量">
+                        <ItemTemplate>
+                            <asp:Label ID="labGoodNum" runat="server" Text=""></asp:Label>
+                        </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="价格">
+                        <ItemTemplate>
+                            <asp:Label ID="labGoodsPrice" runat="server" Text=""></asp:Label>
+                        </ItemTemplate>
+                </asp:TemplateField>
 
                 <asp:TemplateField HeaderText="更改数量">
                         <ItemTemplate>
-                            <asp:TextBox ID="strNum" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtNum" runat="server"></asp:TextBox>
+                            <asp:Button ID="btnChangeNum" CssClass="button" runat="server" Text="更改" CommandName="update"  />
                         </ItemTemplate>
                     </asp:TemplateField>
-                <asp:TemplateField HeaderText="更新">
+
+                <asp:TemplateField HeaderText="更新" >
                         <ItemTemplate>
-                            <asp:Button ID="btnChangeNum" CssClass="button" runat="server" Text="更改" CommandName="update" />
-                            <asp:Button ID="btnGoodDelete" CssClass="button" runat="server" Text="删除" CommandName="delete" />
+                            <asp:Button ID="btnGoodDelete" CssClass="button" runat="server" Text="删除"  CommandName="delete" />
                         </ItemTemplate> 
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
+        <br />
         <asp:Button ID="btnBuy" CssClass="button" runat="server" Text="提交订单" OnClick="btnBuy_Click" />
     </div>
 </asp:Content>

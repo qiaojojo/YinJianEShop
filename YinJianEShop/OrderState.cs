@@ -32,9 +32,9 @@ namespace YinJianEShop
         public Nullable<int> AddressId { get; set; }
         public string CourierNum { get; set; }
     
+        public virtual Users Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GoodOrder> GoodOrder { get; set; }
-        public virtual Users Users { get; set; }
         public virtual UserShoppingAddress UserShoppingAddress { get; set; }
     }
 }

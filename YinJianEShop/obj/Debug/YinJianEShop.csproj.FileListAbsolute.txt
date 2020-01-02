@@ -75,7 +75,6 @@ F:\YinJianEShop\YinJianEShop\YinJianEShop\bin\EntityFramework.xml
 F:\YinJianEShop\YinJianEShop\YinJianEShop\bin\EntityFramework.SqlServer.xml
 F:\YinJianEShop\YinJianEShop\YinJianEShop\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 F:\YinJianEShop\YinJianEShop\YinJianEShop\bin\zh-Hans\EntityFramework.resources.dll
-F:\YinJianEShop\YinJianEShop\YinJianEShop\obj\Debug\YinJianEShop.csprojAssemblyReference.cache
 F:\YinJianEShop\YinJianEShop\YinJianEShop\obj\Debug\YinJianEShop.csproj.CoreCompileInputs.cache
 F:\YinJianEShop\YinJianEShop\YinJianEShop\obj\Debug\YinJianEShop.csproj.CopyComplete
 F:\YinJianEShop\YinJianEShop\YinJianEShop\obj\Debug\YinJianEShop.dll
@@ -162,3 +161,4 @@ F:\YinJianEShop\YinJianEShop\obj\Debug\YinJianEShop.csproj.CoreCompileInputs.cac
 F:\YinJianEShop\YinJianEShop\obj\Debug\YinJianEShop.csproj.CopyComplete
 F:\YinJianEShop\YinJianEShop\obj\Debug\YinJianEShop.dll
 F:\YinJianEShop\YinJianEShop\obj\Debug\YinJianEShop.pdb
+F:\YinJianEShop\YinJianEShop\YinJianEShop\obj\Debug\YinJianEShop.csprojAssemblyReference.cache

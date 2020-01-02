@@ -11,7 +11,7 @@
         <a href="/User/UserShopCart.aspx"><img Class=".shoppingCart" src="/Images/Page/Cart.png" /></a>
     </div>
     <div class="divUserAddress">
-        <asp:GridView ID="gvAddress" CssClass="gvAddress" runat="server" OnRowDeleting="gvAddress_RowDeleting" DataKeyNames="Id">
+        <asp:GridView ID="gvAddress" BorderColor="Black" CssClass="gvAddress" runat="server" OnRowDeleting="gvAddress_RowDeleting" DataKeyNames="Id" AutoGenerateColumns="False">
         <Columns>
             <asp:BoundField DataField="Receiver" HeaderText="收件人" />
             <asp:BoundField DataField="Telephone" HeaderText="联系方式" />
@@ -34,7 +34,7 @@
                     <asp:TextBox ID="txtReceiver" runat="server"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfvReceiver" ForeColor="Red" runat="server" ControlToValidate="txtReceiver" ErrorMessage="收件人是必填项！"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvReceiver" ForeColor="Red" runat="server" ControlToValidate="txtReceiver" ErrorMessage="收件人是必填项！" ValidationGroup="addAddress"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -43,7 +43,7 @@
                     <asp:TextBox ID="txtTelephone" runat="server"></asp:TextBox>
                 </td>
                 <td>
-                     <asp:RequiredFieldValidator ID="rfvTelephone" ForeColor="Red" runat="server" ControlToValidate="txtTelephone" ErrorMessage="电话号码是必填项！"></asp:RequiredFieldValidator>
+                     <asp:RequiredFieldValidator ID="rfvTelephone" ForeColor="Red" runat="server" ControlToValidate="txtTelephone" ErrorMessage="电话号码是必填项！" ValidationGroup="addAddress"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -52,12 +52,12 @@
                     <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
                 </td>
                 <td>
-                     <asp:RequiredFieldValidator ID="rfvAddress" ForeColor="Red" runat="server" ControlToValidate="txtAddress" ErrorMessage="地址是必填项！"></asp:RequiredFieldValidator>
+                     <asp:RequiredFieldValidator ID="rfvAddress" ForeColor="Red" runat="server" ControlToValidate="txtAddress" ErrorMessage="地址是必填项！" ValidationGroup="addAddress"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             </table>
         </div>
-        <asp:Button ID="btnAddAddress" CssClass="button" runat="server" Text="添加地址" OnClick="btnAddAddress_Click" />
+        <asp:Button ID="btnAddAddress" CssClass="button" runat="server" Text="添加地址" OnClick="btnAddAddress_Click" ValidationGroup="addAddress"/>
     </div>
 </asp:Content>
 

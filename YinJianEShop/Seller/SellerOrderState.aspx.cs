@@ -79,7 +79,7 @@ namespace YinJianEShop.Seller
                 this.labTelephone.Text = queryReceiver.FirstOrDefault().Telephone;
 
 
-                this.gvOrderState.DataSource = queryOrderState;
+                this.gvOrderState.DataSource = queryOrderState.ToList();
                 this.gvOrderState.DataBind();
 
             }

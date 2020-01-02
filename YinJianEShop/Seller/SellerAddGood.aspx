@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link type="text/css" rel="/Style/sellerOrderPage.css" />
+<link type="text/css" rel="stylesheet" href="/Style/sellerOrderPage.css" />
 </head>
 <body>
     <form id="formAddGood" runat="server">

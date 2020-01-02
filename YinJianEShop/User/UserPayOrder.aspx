@@ -11,7 +11,7 @@
     </div>
     <div class="divGoodOrder">
         <h2>订单详情</h2>
-        <asp:GridView ID="gvGoodOrder" CssClass="gvUserCart" runat="server">
+        <asp:GridView ID="gvGoodOrder" BorderColor="Black" CssClass="gvUserCart" runat="server" AutoGenerateColumns="False" >
             <Columns>
                 <asp:BoundField DataField="GoodName" HeaderText="商品名" />
                 <asp:TemplateField HeaderText="图片预览">
@@ -29,7 +29,7 @@
             <p>总金额：<asp:Label ID="labPriceSum" runat="server" Text="" ForeColor="Red"></asp:Label>元</p>
             <asp:TextBox ID="txtPayNumber" runat="server" Visible="false"></asp:TextBox><br />
             <asp:Button ID="btnSurePay" CssClass="button" runat="server" Visible="false" Text="火钱已烧" OnClick="btnSurePay_Click" />
-            <asp:Button ID="btnUserGet" CssClass="button" runat="server" Text="确认到货" Visible="false" OnClick="btnUserGet_Click" />
+            <asp:Button ID="btnUserGet" CssClass="button" runat="server" Visible="false" Text="确认到货" OnClick="btnUserGet_Click" />
         </div>
     </div>
 </asp:Content>

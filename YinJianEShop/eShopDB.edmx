@@ -10,9 +10,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="GoodsNum" Type="int" />
           <Property Name="GoodId" Type="int" />
           <Property Name="OrderId" Type="int" />
+          <Property Name="GoodsNum" Type="int" />
         </EntityType>
         <EntityType Name="GoodsImg">
           <Key>
@@ -20,8 +20,8 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ImgUrl" Type="nvarchar" MaxLength="100" />
-          <Property Name="ImgLevel" Type="int" />
           <Property Name="GoodId" Type="int" />
+          <Property Name="ImgLevel" Type="int" />
         </EntityType>
         <EntityType Name="GoodsInfo">
           <Key>
@@ -39,6 +39,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="AddressId" Type="int" />
+          <Property Name="CourierNum" Type="nvarchar" MaxLength="50" />
           <Property Name="OrderState" Type="int" />
           <Property Name="OrderNum" Type="nvarchar" MaxLength="100" />
           <Property Name="RealPay" Type="decimal" Precision="18" Scale="0" />
@@ -46,9 +49,6 @@
           <Property Name="PayDate" Type="datetime" />
           <Property Name="SendDate" Type="datetime" />
           <Property Name="UserGetDate" Type="datetime" />
-          <Property Name="UserId" Type="int" />
-          <Property Name="AddressId" Type="int" />
-          <Property Name="CourierNum" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Sellers">
           <Key>
@@ -92,7 +92,7 @@
           <Property Name="Address" Type="nvarchar" MaxLength="300" />
           <Property Name="UserId" Type="int" />
         </EntityType>
-        <Association Name="FK__GoodOrder__GoodI__21B6055D">
+        <Association Name="FK__GoodOrder__GoodI__47DBAE45">
           <End Role="GoodsInfo" Type="Self.GoodsInfo" Multiplicity="0..1" />
           <End Role="GoodOrder" Type="Self.GoodOrder" Multiplicity="*" />
           <ReferentialConstraint>
@@ -104,7 +104,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GoodOrder__Order__22AA2996">
+        <Association Name="FK__GoodOrder__Order__48CFD27E">
           <End Role="OrderState" Type="Self.OrderState" Multiplicity="0..1" />
           <End Role="GoodOrder" Type="Self.GoodOrder" Multiplicity="*" />
           <ReferentialConstraint>
@@ -116,7 +116,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GoodsImg__GoodId__1273C1CD">
+        <Association Name="FK__GoodsImg__GoodId__44FF419A">
           <End Role="GoodsInfo" Type="Self.GoodsInfo" Multiplicity="0..1" />
           <End Role="GoodsImg" Type="Self.GoodsImg" Multiplicity="*" />
           <ReferentialConstraint>
@@ -128,7 +128,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GoodsInfo__Adder__0DAF0CB0">
+        <Association Name="FK__GoodsInfo__Adder__3E52440B">
           <End Role="Sellers" Type="Self.Sellers" Multiplicity="0..1" />
           <End Role="GoodsInfo" Type="Self.GoodsInfo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -140,31 +140,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UserShipp__UserI__08EA5793">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="UserShoppingAddress" Type="Self.UserShoppingAddress" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="UserShoppingAddress">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderState_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="OrderState" Type="Self.OrderState" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="OrderState">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderState_UserShippingAddress">
+        <Association Name="FK__OrderStat__Addre__4222D4EF">
           <End Role="UserShoppingAddress" Type="Self.UserShoppingAddress" Multiplicity="0..1" />
           <End Role="OrderState" Type="Self.OrderState" Multiplicity="*" />
           <ReferentialConstraint>
@@ -173,6 +149,30 @@
             </Principal>
             <Dependent Role="OrderState">
               <PropertyRef Name="AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderStat__UserI__412EB0B6">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="OrderState" Type="Self.OrderState" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderState">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserShipp__UserI__3B75D760">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="UserShoppingAddress" Type="Self.UserShoppingAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserShoppingAddress">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -216,50 +216,39 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserShoppingAddress" EntityType="Self.UserShoppingAddress" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__GoodOrder__GoodI__21B6055D" Association="Self.FK__GoodOrder__GoodI__21B6055D">
+          <AssociationSet Name="FK__GoodOrder__GoodI__47DBAE45" Association="Self.FK__GoodOrder__GoodI__47DBAE45">
             <End Role="GoodsInfo" EntitySet="GoodsInfo" />
             <End Role="GoodOrder" EntitySet="GoodOrder" />
           </AssociationSet>
-          <AssociationSet Name="FK__GoodOrder__Order__22AA2996" Association="Self.FK__GoodOrder__Order__22AA2996">
+          <AssociationSet Name="FK__GoodOrder__Order__48CFD27E" Association="Self.FK__GoodOrder__Order__48CFD27E">
             <End Role="OrderState" EntitySet="OrderState" />
             <End Role="GoodOrder" EntitySet="GoodOrder" />
           </AssociationSet>
-          <AssociationSet Name="FK__GoodsImg__GoodId__1273C1CD" Association="Self.FK__GoodsImg__GoodId__1273C1CD">
+          <AssociationSet Name="FK__GoodsImg__GoodId__44FF419A" Association="Self.FK__GoodsImg__GoodId__44FF419A">
             <End Role="GoodsInfo" EntitySet="GoodsInfo" />
             <End Role="GoodsImg" EntitySet="GoodsImg" />
           </AssociationSet>
-          <AssociationSet Name="FK__GoodsInfo__Adder__0DAF0CB0" Association="Self.FK__GoodsInfo__Adder__0DAF0CB0">
+          <AssociationSet Name="FK__GoodsInfo__Adder__3E52440B" Association="Self.FK__GoodsInfo__Adder__3E52440B">
             <End Role="Sellers" EntitySet="Sellers" />
             <End Role="GoodsInfo" EntitySet="GoodsInfo" />
           </AssociationSet>
-          <AssociationSet Name="FK__UserShipp__UserI__08EA5793" Association="Self.FK__UserShipp__UserI__08EA5793">
-            <End Role="Users" EntitySet="Users" />
+          <AssociationSet Name="FK__OrderStat__Addre__4222D4EF" Association="Self.FK__OrderStat__Addre__4222D4EF">
             <End Role="UserShoppingAddress" EntitySet="UserShoppingAddress" />
+            <End Role="OrderState" EntitySet="OrderState" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderState_Users" Association="Self.FK_OrderState_Users">
+          <AssociationSet Name="FK__OrderStat__UserI__412EB0B6" Association="Self.FK__OrderStat__UserI__412EB0B6">
             <End Role="Users" EntitySet="Users" />
             <End Role="OrderState" EntitySet="OrderState" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderState_UserShippingAddress" Association="Self.FK_OrderState_UserShippingAddress">
+          <AssociationSet Name="FK__UserShipp__UserI__3B75D760" Association="Self.FK__UserShipp__UserI__3B75D760">
+            <End Role="Users" EntitySet="Users" />
             <End Role="UserShoppingAddress" EntitySet="UserShoppingAddress" />
-            <End Role="OrderState" EntitySet="OrderState" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="eShopDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="GoodOrder">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GoodId" Type="Int32" />
-          <Property Name="OrderId" Type="Int32" />
-          <NavigationProperty Name="GoodsInfo" Relationship="Self.FK__GoodOrder__GoodI__21B6055D" FromRole="GoodOrder" ToRole="GoodsInfo" />
-          <NavigationProperty Name="OrderState" Relationship="Self.FK__GoodOrder__Order__22AA2996" FromRole="GoodOrder" ToRole="OrderState" />
-          <Property Name="GoodsNum" Type="Int32" />
-        </EntityType>
         <EntityType Name="GoodsImg">
           <Key>
             <PropertyRef Name="Id" />
@@ -280,9 +269,9 @@
           <Property Name="AddedDate" Type="DateTime" Precision="3" />
           <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="AdderId" Type="Int32" />
-          <NavigationProperty Name="GoodOrder" Relationship="Self.FK__GoodOrder__GoodI__21B6055D" FromRole="GoodsInfo" ToRole="GoodOrder" />
           <NavigationProperty Name="GoodsImg" Relationship="Self.FK__GoodsImg__GoodId__1273C1CD" FromRole="GoodsInfo" ToRole="GoodsImg" />
           <NavigationProperty Name="Sellers" Relationship="Self.FK__GoodsInfo__Adder__0DAF0CB0" FromRole="GoodsInfo" ToRole="Sellers" />
+          <NavigationProperty Name="GoodOrder" Relationship="eShopDatabaseModel.FK__GoodOrder__GoodI__47DBAE45" FromRole="GoodsInfo" ToRole="GoodOrder" />
         </EntityType>
         <EntityType Name="OrderState">
           <Key>
@@ -299,9 +288,9 @@
           <Property Name="UserId" Type="Int32" />
           <Property Name="AddressId" Type="Int32" />
           <Property Name="CourierNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="GoodOrder" Relationship="Self.FK__GoodOrder__Order__22AA2996" FromRole="OrderState" ToRole="GoodOrder" />
           <NavigationProperty Name="Users" Relationship="Self.FK_OrderState_Users" FromRole="OrderState" ToRole="Users" />
-          <NavigationProperty Name="UserShoppingAddress" Relationship="eShopDatabaseModel.FK_OrderState_UserShippingAddress" FromRole="OrderState" ToRole="UserShoppingAddress" />
+          <NavigationProperty Name="GoodOrder" Relationship="eShopDatabaseModel.FK__GoodOrder__Order__48CFD27E" FromRole="OrderState" ToRole="GoodOrder" />
+          <NavigationProperty Name="UserShoppingAddress" Relationship="eShopDatabaseModel.FK__OrderStat__Addre__4222D4EF" FromRole="OrderState" ToRole="UserShoppingAddress" />
         </EntityType>
         <EntityType Name="Sellers">
           <Key>
@@ -336,32 +325,8 @@
           <Property Name="Identification" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Telephone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="OrderState" Relationship="Self.FK_OrderState_Users" FromRole="Users" ToRole="OrderState" />
-          <NavigationProperty Name="UserShoppingAddress" Relationship="eShopDatabaseModel.FK__UserShipp__UserI__08EA5793" FromRole="Users" ToRole="UserShoppingAddress" />
+          <NavigationProperty Name="UserShoppingAddress" Relationship="eShopDatabaseModel.FK__UserShipp__UserI__3B75D760" FromRole="Users" ToRole="UserShoppingAddress" />
         </EntityType>
-        <Association Name="FK__GoodOrder__GoodI__21B6055D">
-          <End Role="GoodsInfo" Type="Self.GoodsInfo" Multiplicity="0..1" />
-          <End Role="GoodOrder" Type="Self.GoodOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="GoodsInfo">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="GoodOrder">
-              <PropertyRef Name="GoodId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__GoodOrder__Order__22AA2996">
-          <End Role="OrderState" Type="Self.OrderState" Multiplicity="0..1" />
-          <End Role="GoodOrder" Type="Self.GoodOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="OrderState">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="GoodOrder">
-              <PropertyRef Name="OrderId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__GoodsImg__GoodId__1273C1CD">
           <End Role="GoodsInfo" Type="Self.GoodsInfo" Multiplicity="0..1" />
           <End Role="GoodsImg" Type="Self.GoodsImg" Multiplicity="*" />
@@ -399,21 +364,12 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="eShopDatabaseEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="GoodOrder" EntityType="Self.GoodOrder" />
           <EntitySet Name="GoodsImg" EntityType="Self.GoodsImg" />
           <EntitySet Name="GoodsInfo" EntityType="Self.GoodsInfo" />
           <EntitySet Name="OrderState" EntityType="Self.OrderState" />
           <EntitySet Name="Sellers" EntityType="Self.Sellers" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Users" EntityType="Self.Users" />
-          <AssociationSet Name="FK__GoodOrder__GoodI__21B6055D" Association="Self.FK__GoodOrder__GoodI__21B6055D">
-            <End Role="GoodsInfo" EntitySet="GoodsInfo" />
-            <End Role="GoodOrder" EntitySet="GoodOrder" />
-          </AssociationSet>
-          <AssociationSet Name="FK__GoodOrder__Order__22AA2996" Association="Self.FK__GoodOrder__Order__22AA2996">
-            <End Role="OrderState" EntitySet="OrderState" />
-            <End Role="GoodOrder" EntitySet="GoodOrder" />
-          </AssociationSet>
           <AssociationSet Name="FK__GoodsImg__GoodId__1273C1CD" Association="Self.FK__GoodsImg__GoodId__1273C1CD">
             <End Role="GoodsInfo" EntitySet="GoodsInfo" />
             <End Role="GoodsImg" EntitySet="GoodsImg" />
@@ -456,12 +412,21 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="GoodOrder" EntityType="eShopDatabaseModel.GoodOrder" />
+          <AssociationSet Name="FK__GoodOrder__GoodI__47DBAE45" Association="eShopDatabaseModel.FK__GoodOrder__GoodI__47DBAE45">
+            <End Role="GoodsInfo" EntitySet="GoodsInfo" />
+            <End Role="GoodOrder" EntitySet="GoodOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GoodOrder__Order__48CFD27E" Association="eShopDatabaseModel.FK__GoodOrder__Order__48CFD27E">
+            <End Role="OrderState" EntitySet="OrderState" />
+            <End Role="GoodOrder" EntitySet="GoodOrder" />
+          </AssociationSet>
           <EntitySet Name="UserShoppingAddress" EntityType="eShopDatabaseModel.UserShoppingAddress" />
-          <AssociationSet Name="FK_OrderState_UserShippingAddress" Association="eShopDatabaseModel.FK_OrderState_UserShippingAddress">
+          <AssociationSet Name="FK__OrderStat__Addre__4222D4EF" Association="eShopDatabaseModel.FK__OrderStat__Addre__4222D4EF">
             <End Role="UserShoppingAddress" EntitySet="UserShoppingAddress" />
             <End Role="OrderState" EntitySet="OrderState" />
           </AssociationSet>
-          <AssociationSet Name="FK__UserShipp__UserI__08EA5793" Association="eShopDatabaseModel.FK__UserShipp__UserI__08EA5793">
+          <AssociationSet Name="FK__UserShipp__UserI__3B75D760" Association="eShopDatabaseModel.FK__UserShipp__UserI__3B75D760">
             <End Role="Users" EntitySet="Users" />
             <End Role="UserShoppingAddress" EntitySet="UserShoppingAddress" />
           </AssociationSet>
@@ -477,6 +442,41 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="GoodOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GoodId" Type="Int32" />
+          <Property Name="OrderId" Type="Int32" />
+          <Property Name="GoodsNum" Type="Int32" />
+          <NavigationProperty Name="GoodsInfo" Relationship="eShopDatabaseModel.FK__GoodOrder__GoodI__47DBAE45" FromRole="GoodOrder" ToRole="GoodsInfo" />
+          <NavigationProperty Name="OrderState" Relationship="eShopDatabaseModel.FK__GoodOrder__Order__48CFD27E" FromRole="GoodOrder" ToRole="OrderState" />
+        </EntityType>
+        <Association Name="FK__GoodOrder__GoodI__47DBAE45">
+          <End Type="eShopDatabaseModel.GoodsInfo" Role="GoodsInfo" Multiplicity="0..1" />
+          <End Type="eShopDatabaseModel.GoodOrder" Role="GoodOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GoodsInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GoodOrder">
+              <PropertyRef Name="GoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GoodOrder__Order__48CFD27E">
+          <End Type="eShopDatabaseModel.OrderState" Role="OrderState" Multiplicity="0..1" />
+          <End Type="eShopDatabaseModel.GoodOrder" Role="GoodOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderState">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GoodOrder">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="UserShoppingAddress">
           <Key>
             <PropertyRef Name="Id" />
@@ -486,10 +486,10 @@
           <Property Name="Telephone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Name="UserId" Type="Int32" />
-          <NavigationProperty Name="OrderState" Relationship="eShopDatabaseModel.FK_OrderState_UserShippingAddress" FromRole="UserShoppingAddress" ToRole="OrderState" />
-          <NavigationProperty Name="Users" Relationship="eShopDatabaseModel.FK__UserShipp__UserI__08EA5793" FromRole="UserShoppingAddress" ToRole="Users" />
+          <NavigationProperty Name="OrderState" Relationship="eShopDatabaseModel.FK__OrderStat__Addre__4222D4EF" FromRole="UserShoppingAddress" ToRole="OrderState" />
+          <NavigationProperty Name="Users" Relationship="eShopDatabaseModel.FK__UserShipp__UserI__3B75D760" FromRole="UserShoppingAddress" ToRole="Users" />
         </EntityType>
-        <Association Name="FK_OrderState_UserShippingAddress">
+        <Association Name="FK__OrderStat__Addre__4222D4EF">
           <End Type="eShopDatabaseModel.UserShoppingAddress" Role="UserShoppingAddress" Multiplicity="0..1" />
           <End Type="eShopDatabaseModel.OrderState" Role="OrderState" Multiplicity="*" />
           <ReferentialConstraint>
@@ -501,7 +501,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UserShipp__UserI__08EA5793">
+        <Association Name="FK__UserShipp__UserI__3B75D760">
           <End Type="eShopDatabaseModel.Users" Role="Users" Multiplicity="0..1" />
           <End Type="eShopDatabaseModel.UserShoppingAddress" Role="UserShoppingAddress" Multiplicity="*" />
           <ReferentialConstraint>
@@ -519,16 +519,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="eShopDatabaseModelStoreContainer" CdmEntityContainer="eShopDatabaseEntities">
-          <EntitySetMapping Name="GoodOrder">
-            <EntityTypeMapping TypeName="eShopDatabaseModel.GoodOrder">
-              <MappingFragment StoreEntitySet="GoodOrder">
-                <ScalarProperty Name="GoodsNum" ColumnName="GoodsNum" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="GoodId" ColumnName="GoodId" />
-                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="GoodsImg">
             <EntityTypeMapping TypeName="eShopDatabaseModel.GoodsImg">
               <MappingFragment StoreEntitySet="GoodsImg">
@@ -627,6 +617,16 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="eShopDatabaseModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="eShopDatabaseModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="GoodOrder">
+            <EntityTypeMapping TypeName="eShopDatabaseModel.GoodOrder">
+              <MappingFragment StoreEntitySet="GoodOrder">
+                <ScalarProperty Name="GoodsNum" ColumnName="GoodsNum" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="GoodId" ColumnName="GoodId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="UserShoppingAddress">
             <EntityTypeMapping TypeName="eShopDatabaseModel.UserShoppingAddress">
               <MappingFragment StoreEntitySet="UserShoppingAddress">

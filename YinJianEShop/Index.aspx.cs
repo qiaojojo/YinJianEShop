@@ -69,7 +69,7 @@ namespace YinJianEShop
         }
         protected void lbtnUserOrder_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/User/UserAllOrder");
+            Response.Redirect("/User/UserAllOrder.aspx");
         }
         protected void lbtnAddress_Click(object sender, EventArgs e)
         {

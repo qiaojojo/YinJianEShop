@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-<link type="text/css" rel="/Style/sellerOrderPage.css" />
+<link type="text/css" rel="stylesheet" href="/Style/sellerOrderPage.css" />
 </head>
 <body>
     <form id="formGoodUpdate" runat="server">
@@ -38,7 +38,9 @@
                 </tr>
 
                 <tr>
-                    <td>更新图片</td>
+                    <td>
+                        <asp:CheckBox ID="checkUploadImg" runat="server" />更新图片
+                    </td>
                     <td>
                         <asp:FileUpload ID="uploadImg" runat="server" />
                     </td>

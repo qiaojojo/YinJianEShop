@@ -1,16 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="eShopDatabaseModelStoreContainer" CdmEntityContainer="eShopDatabaseEntities">
-    <EntitySetMapping Name="GoodOrder">
-      <EntityTypeMapping TypeName="eShopDatabaseModel.GoodOrder">
-        <MappingFragment StoreEntitySet="GoodOrder">
-          <ScalarProperty Name="GoodsNum" ColumnName="GoodsNum" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="GoodId" ColumnName="GoodId" />
-          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="GoodsImg">
       <EntityTypeMapping TypeName="eShopDatabaseModel.GoodsImg">
         <MappingFragment StoreEntitySet="GoodsImg">
@@ -109,6 +99,16 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="eShopDatabaseModel.Store.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="eShopDatabaseModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="GoodOrder">
+      <EntityTypeMapping TypeName="eShopDatabaseModel.GoodOrder">
+        <MappingFragment StoreEntitySet="GoodOrder">
+          <ScalarProperty Name="GoodsNum" ColumnName="GoodsNum" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="GoodId" ColumnName="GoodId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="UserShoppingAddress">
       <EntityTypeMapping TypeName="eShopDatabaseModel.UserShoppingAddress">
         <MappingFragment StoreEntitySet="UserShoppingAddress">

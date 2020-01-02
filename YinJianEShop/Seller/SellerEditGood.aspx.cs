@@ -34,14 +34,19 @@ namespace YinJianEShop.Seller
 
         protected void gvEditGood_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            GoodsInfo goodsInfo = eShop.GoodsInfo.Find(e.RowIndex);
+            var goodsImg = eShop.GoodsImg.Where(img => img.GoodId == (int)e.Keys["Id"]);
+            var goodsInfo = eShop.GoodsInfo.Find((int)e.Keys["Id"]);
+            foreach(GoodsImg img in goodsImg)
+            {
+                eShop.GoodsImg.Remove(img);
+            }
             eShop.GoodsInfo.Remove(goodsInfo);
             eShop.SaveChanges();
         }
 
         protected void gvEditGood_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            Response.Redirect("/Seller/SellerGoodUpdate,aspx?id=" + e.RowIndex);
+            Response.Redirect("/Seller/SellerGoodUpdate.aspx?id=" + (int)e.Keys["Id"]);
         }
     }
 }

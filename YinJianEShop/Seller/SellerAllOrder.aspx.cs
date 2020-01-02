@@ -32,7 +32,7 @@ namespace YinJianEShop.Seller
                                           Address = orderState.UserShoppingAddress.Address,
                                           OrderStatus = orderState.OrderState1
                                       };
-                this.gvAllOrder.DataSource = queryUserOrders;
+                this.gvAllOrder.DataSource = queryUserOrders.ToList();
                 this.gvAllOrder.DataBind();
             }
         }
@@ -56,7 +56,7 @@ namespace YinJianEShop.Seller
                                           Address = orderState.UserShoppingAddress.Address,
                                           OrderStatus = orderState.OrderState1
                                       };
-                this.gvAllOrder.DataSource = queryUserOrders;
+                this.gvAllOrder.DataSource = queryUserOrders.ToList();
                 this.gvAllOrder.DataBind();
             }
             else
@@ -75,7 +75,7 @@ namespace YinJianEShop.Seller
                                           Address = orderState.UserShoppingAddress.Address,
                                           OrderStatus = orderState.OrderState1
                                       };
-                this.gvAllOrder.DataSource = queryUserOrders;
+                this.gvAllOrder.DataSource = queryUserOrders.ToList();
                 this.gvAllOrder.DataBind();
             }
         }

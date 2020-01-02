@@ -32,7 +32,7 @@ namespace YinJianEShop.Seller
                                                Address = order.UserShoppingAddress.Address
                                            };
 
-                    this.gvGoodOrder.DataSource = queryUnsendOrder;
+                    this.gvGoodOrder.DataSource = queryUnsendOrder.ToList();
                     this.gvGoodOrder.DataBind();
 
                 }

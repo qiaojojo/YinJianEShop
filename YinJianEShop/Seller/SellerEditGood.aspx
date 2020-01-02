@@ -6,12 +6,12 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link type="text/css" rel="/Style/sellerOrderPage.css" />
+<link type="text/css" rel="stylesheet" href="/Style/sellerOrderPage.css" />
 </head>
 <body>
     <form id="formEditGood" runat="server">
         <div class="divEditGood">
-            <asp:GridView ID="gvEditGood" runat="server" DataKeyNames="Id" OnRowDeleting="gvEditGood_RowDeleting" OnRowUpdating="gvEditGood_RowUpdating" > 
+            <asp:GridView ID="gvEditGood"  BorderColor="Black" runat="server" DataKeyNames="Id" OnRowDeleting="gvEditGood_RowDeleting" OnRowUpdating="gvEditGood_RowUpdating" AutoGenerateColumns="False" > 
                 <Columns>
                     <asp:BoundField DataField="Id" HeaderText="商品ID" />
                     <asp:TemplateField HeaderText="图片预览">

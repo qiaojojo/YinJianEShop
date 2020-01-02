@@ -65,7 +65,7 @@ namespace YinJianEShop.Seller
             }
             GoodsImg goodImg = new GoodsImg();
             goodImg.ImgLevel = 0;
-            goodImg.ImgUrl=Server.MapPath("~/Images/Goods/") + this.uploadImg.FileName;
+            goodImg.ImgUrl="/Images/Goods/" + this.uploadImg.FileName;
 
             GoodsInfo good = new GoodsInfo();
             good.GoodName = this.txtGoodName.Text.Trim();

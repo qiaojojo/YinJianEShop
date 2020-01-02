@@ -6,13 +6,13 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-   <link type="text/css" rel="/Style/sellerOrderPage.css" />
+<link type="text/css" rel="stylesheet" href="/Style/sellerOrderPage.css" />
 </head>
 <body>
     <form id="formOrderState" runat="server">
         <div>
             <h2>订单详情</h2>
-            <asp:GridView ID="gvOrderState" CssClass="gvUserCart" runat="server">
+            <asp:GridView ID="gvOrderState"  BorderColor="Black" CssClass="gvUserCart" runat="server">
                 <Columns>
                     <asp:BoundField DataField="GoodName" HeaderText="商品名" />
                     <asp:TemplateField HeaderText="图片预览">

@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>卖家登录</title>
-<link rel="stylesheet" href="~/Style/login.css" />
+<link type="text/css" rel="stylesheet" href="~/Style/login.css" />
 </head>
 <body>
     <form id="formSellerLogin" class="formBox" runat="server">

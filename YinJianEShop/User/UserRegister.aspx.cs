@@ -9,6 +9,7 @@ namespace YinJianEShop.User
 {
     public partial class UserRegister : System.Web.UI.Page
     {
+        eShopDatabaseEntities eShop = new eShopDatabaseEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -16,7 +17,7 @@ namespace YinJianEShop.User
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            eShopDatabaseEntities eShop = new eShopDatabaseEntities();
+            
 
             var query = from users in eShop.Users
                         where users.UserNum.Equals(this.txtUserNum.Text.Trim())
@@ -49,6 +50,11 @@ namespace YinJianEShop.User
             {
                 this.labError.Text = "账户已存在！";
             }
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/User/UserLogin.aspx");
         }
     }
 }

@@ -14,11 +14,13 @@
         <div class="divUserAddress">
             <h2>收货地址</h2>
             <asp:Label ID="labMessege" runat="server" Text="" ForeColor="Red"></asp:Label><br />
-            <asp:RadioButtonList ID="rblUserAddress" CssClass="gvUserCart" runat="server"></asp:RadioButtonList>
+            <asp:RadioButtonList ID="rblUserAddress" CssClass="gvUserCart" runat="server"></asp:RadioButtonList><br />
+            <asp:LinkButton ID="lbtnAddAddress" runat="server" OnClick="lbtnAddAddress_Click">添加地址</asp:LinkButton>
         </div><br />
         <h2>订单详情</h2>
-        <asp:GridView ID="gvUserGoodOrder" CssClass="gvUserCart" runat="server" >
+        <asp:GridView ID="gvUserGoodOrder"  BorderColor="Black" CssClass="gvUserCart" runat="server" AutoGenerateColumns="False" OnRowDataBound="gvUserGoodOrder_RowDataBound" >
             <Columns>
+                <asp:BoundField DataField="Id" HeaderText="商品Id" />
                 <asp:BoundField DataField="GoodName" HeaderText="商品名" />
                 <asp:TemplateField HeaderText="图片预览">
                     <ItemTemplate>
@@ -26,14 +28,21 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="GoodPrice" HeaderText="单价" />
-                <asp:BoundField DataField="GoodNum" HeaderText="数量" />
-                <asp:BoundField DataField="GoodsPrice" HeaderText="价格" />           
+
+                <asp:TemplateField HeaderText="数量">
+                        <ItemTemplate>
+                            <asp:Label ID="labGoodNum" runat="server" Text=""></asp:Label>
+                        </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="价格">
+                        <ItemTemplate>
+                            <asp:Label ID="labGoodsPrice" runat="server" Text=""></asp:Label>
+                        </ItemTemplate>
+                </asp:TemplateField>     
             </Columns>
         </asp:GridView>
         <br />
-        <div class="divUserSure">
-            <p>合计：<asp:Label ID="labPriceSum" runat="server" Text="****" ForeColor="Red"></asp:Label>元</p>
-            <asp:Button ID="btnPostOrder" CssClass="button" runat="server" Text="确认提交" OnClick="btnPostOrder_Click" />
-        </div>
+        <asp:Button ID="btnPostOrder" CssClass="button" runat="server" Text="确认提交" OnClick="btnPostOrder_Click" />
     </div>
 </asp:Content>

@@ -10,27 +10,45 @@ namespace YinJianEShop.User
     public partial class UserAddAddress : System.Web.UI.Page
     {
         eShopDatabaseEntities eShop = new eShopDatabaseEntities();
+
+        private void UserAddress_DataBind()
+        {
+            int userId = ((Users)Session["User"]).Id;
+            var queryAddress = from address in eShop.UserShoppingAddress
+                               where address.UserId == userId
+                               select new
+                               {
+                                   Id=address.Id,
+                                   Receiver = address.Receiver,
+                                   Telephone = address.Telephone,
+                                   Address = address.Address
+                               };
+            this.gvAddress.DataSource = queryAddress.ToList();
+            this.gvAddress.DataBind();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User"] == null)
             {
                 Response.Redirect("/User/UserLogin.aspx");
             }
-            var queryAddress = from address in eShop.UserShoppingAddress
-                               where address.UserId == ((Users)Session["User"]).Id
-                               select address;
-            this.gvAddress.DataSource = queryAddress;
-            this.gvAddress.DataBind();
+            if(!Page.IsPostBack)
+            {
+                UserAddress_DataBind();
+            }
         }
 
         protected void gvAddress_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            int id = (int)e.Keys["Id"];
             var queryAddress = from address in eShop.UserShoppingAddress
-                               where address.Id == e.RowIndex
+                               where address.Id == id
                                select address;
 
             eShop.UserShoppingAddress.Remove(queryAddress.FirstOrDefault());
             eShop.SaveChanges();
+            UserAddress_DataBind();
         }
 
         protected void btnAddAddress_Click(object sender, EventArgs e)
@@ -43,6 +61,7 @@ namespace YinJianEShop.User
 
             eShop.UserShoppingAddress.Add(address);
             eShop.SaveChanges();
+            UserAddress_DataBind();
         }
 
         
