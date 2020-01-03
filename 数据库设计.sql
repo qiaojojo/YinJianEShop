@@ -37,7 +37,7 @@ CREATE TABLE UserShoppingAddress(
 CREATE TABLE GoodsInfo(
 	Id INT PRIMARY KEY IDENTITY,	--自增主键
 	GoodName NVARCHAR(20),
-	GoodPrice DECIMAL,
+	GoodPrice DECIMAL(18,2),
 	AddedDate DATETIME,
 	Remark NVARCHAR(200),
 	AdderId INT,

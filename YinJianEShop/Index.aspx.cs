@@ -36,6 +36,7 @@ namespace YinJianEShop
             }
             if(Session["User"]!=null)
             {
+                this.lbtnAdminLogin.Visible = false;
                 this.lbtnLogin.Visible = false;
                 this.lbtnRegister.Visible = false;
                 this.lbtnUserOrder.Visible = true;

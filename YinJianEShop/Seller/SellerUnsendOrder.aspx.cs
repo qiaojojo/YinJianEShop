@@ -22,6 +22,7 @@ namespace YinJianEShop.Seller
                 if (!Page.IsPostBack)
                 {
                     var queryUnsendOrder = from order in eShop.OrderState
+                                           where order.OrderState1 == 1
                                            select new
                                            {
                                                OrderId = order.Id,
@@ -45,7 +46,7 @@ namespace YinJianEShop.Seller
             if (this.txtOrderNum.Text.ToString() != null)
             {
                 var queryUnsendOrder = from order in eShop.OrderState
-                                       where order.OrderNum.Contains( this.txtOrderNum.Text.Trim())
+                                       where order.OrderState1 == 1 && order.OrderNum.Contains( this.txtOrderNum.Text.Trim())
                                        select new
                                        {
                                            OrderId = order.Id,
@@ -61,6 +62,7 @@ namespace YinJianEShop.Seller
             else
             {
                 var queryUnsendOrder = from order in eShop.OrderState
+                                       where order.OrderState1 == 1
                                        select new
                                        {
                                            OrderId = order.Id,
