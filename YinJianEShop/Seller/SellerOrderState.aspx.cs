@@ -14,11 +14,12 @@ namespace YinJianEShop.Seller
         {
             if(Request.QueryString["id"]!=null)
             {
+                int id = int.Parse(Request.QueryString["id"]);
                 var queryOrderState = from info in eShop.GoodsInfo
                                       join goodOrder in eShop.GoodOrder on info.Id equals goodOrder.GoodId
                                       join img in eShop.GoodsImg on info.Id equals img.GoodId
                                       where img.ImgLevel == 0
-                                        && goodOrder.OrderId == int.Parse(Request.QueryString["id"])
+                                        && goodOrder.OrderId == id
                                       select new
                                       {
                                           Id = info.Id,
@@ -30,7 +31,7 @@ namespace YinJianEShop.Seller
                                       };
 
                 var queryReceiver = from order in eShop.OrderState
-                                    where order.Id == int.Parse(Request.QueryString["id"])
+                                    where order.Id == id
                                     select new
                                     {
                                         order.OrderState1,

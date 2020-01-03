@@ -18,7 +18,7 @@
             </div>
             <asp:GridView ID="gvAllOrder" BorderColor="Black" runat="server" OnRowDataBound="gvAllOrder_RowDataBound" OnRowCommand="gvAllOrder_RowCommand" AutoGenerateColumns="False">
                 <Columns>
-                    <asp:BoundField DataField="OrderId" HeaderText="订单id" />
+                    <asp:BoundField DataField="Id" HeaderText="订单id" />
                     <asp:BoundField DataField="OrderNum" HeaderText="订单号" />
                     <asp:BoundField DataField="CreateDate" HeaderText="创建日期" />
                     <asp:BoundField DataField="PayDate" HeaderText="付款日期" />
@@ -29,7 +29,7 @@
                     <asp:BoundField DataField="OrderStatus" HeaderText="订单状态" />
                     <asp:TemplateField HeaderText="详情">
                         <ItemTemplate>
-                            <asp:LinkButton ID="lbtnState" runat="server" CommandName="status">详情</asp:LinkButton>
+                            <asp:LinkButton ID="lbtnState" runat="server" CommandName="status" CommandArgument='<%#Eval("Id") %>'>详情</asp:LinkButton>
                         </ItemTemplate> 
                 </asp:TemplateField>
                 </Columns>

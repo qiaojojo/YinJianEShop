@@ -10,6 +10,49 @@ namespace YinJianEShop.Seller
     public partial class SellerAllOrder : System.Web.UI.Page
     {
         eShopDatabaseEntities eShop = new eShopDatabaseEntities();
+
+        private void SellerAllOrder_DataBind()
+        {
+            var queryUserOrders = from orderState in eShop.OrderState
+                                  orderby orderState.OrderState1 ascending
+                                  select new
+                                  {
+                                      Id = orderState.Id,
+                                      OrderNum = orderState.OrderNum,
+                                      CreateDate = orderState.CreateDate,
+                                      PayDate = orderState.PayDate,
+                                      SendDate = orderState.SendDate,
+                                      UserGetDate = orderState.UserGetDate,
+                                      CourierNum = orderState.CourierNum,
+                                      Address = orderState.UserShoppingAddress.Address,
+                                      OrderStatus = orderState.OrderState1
+                                  };
+            this.gvAllOrder.DataSource = queryUserOrders.ToList();
+            this.gvAllOrder.DataBind();
+        }
+        private void SellerAllOrder_DataBind(string search)
+        {
+            var queryUserOrders = from orderState in eShop.OrderState
+                                  where orderState.OrderNum.Contains(search)
+                                  orderby orderState.OrderState1 ascending
+                                  select new
+                                  {
+                                      Id = orderState.Id,
+                                      OrderNum = orderState.OrderNum,
+                                      CreateDate = orderState.CreateDate,
+                                      PayDate = orderState.PayDate,
+                                      SendDate = orderState.SendDate,
+                                      UserGetDate = orderState.UserGetDate,
+                                      CourierNum = orderState.CourierNum,
+                                      Address = orderState.UserShoppingAddress.Address,
+                                      OrderStatus = orderState.OrderState1
+                                  };
+            this.gvAllOrder.DataSource = queryUserOrders.ToList();
+            this.gvAllOrder.DataBind();
+        }
+
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Seller"] == null)
@@ -18,22 +61,10 @@ namespace YinJianEShop.Seller
             }
             else
             {
-                var queryUserOrders = from orderState in eShop.OrderState
-                                      orderby orderState.OrderState1 ascending
-                                      select new
-                                      {
-                                          OrderId = orderState.Id,
-                                          OrderNum = orderState.OrderNum,
-                                          CreateDate = orderState.CreateDate,
-                                          PayDate = orderState.PayDate,
-                                          SendDate = orderState.SendDate,
-                                          UserGetDate = orderState.UserGetDate,
-                                          CourierNum = orderState.CourierNum,
-                                          Address = orderState.UserShoppingAddress.Address,
-                                          OrderStatus = orderState.OrderState1
-                                      };
-                this.gvAllOrder.DataSource = queryUserOrders.ToList();
-                this.gvAllOrder.DataBind();
+                if (!Page.IsPostBack)
+                {
+                    SellerAllOrder_DataBind();
+                }
             }
         }
 
@@ -41,42 +72,12 @@ namespace YinJianEShop.Seller
         {
             if (this.txtSearch.Text.ToString() != null)
             {
-                var queryUserOrders = from orderState in eShop.OrderState
-                                      where orderState.OrderNum.Contains(this.txtSearch.Text.Trim())
-                                      orderby orderState.OrderState1 ascending
-                                      select new
-                                      {
-                                          OrderId = orderState.Id,
-                                          OrderNum = orderState.OrderNum,
-                                          CreateDate = orderState.CreateDate,
-                                          PayDate = orderState.PayDate,
-                                          SendDate = orderState.SendDate,
-                                          UserGetDate = orderState.UserGetDate,
-                                          CourierNum = orderState.CourierNum,
-                                          Address = orderState.UserShoppingAddress.Address,
-                                          OrderStatus = orderState.OrderState1
-                                      };
-                this.gvAllOrder.DataSource = queryUserOrders.ToList();
-                this.gvAllOrder.DataBind();
+                string search = this.txtSearch.Text.Trim();
+                SellerAllOrder_DataBind(search);
             }
             else
             {
-                var queryUserOrders = from orderState in eShop.OrderState
-                                      orderby orderState.OrderState1 ascending
-                                      select new
-                                      {
-                                          OrderId = orderState.Id,
-                                          OrderNum = orderState.OrderNum,
-                                          CreateDate = orderState.CreateDate,
-                                          PayDate = orderState.PayDate,
-                                          SendDate = orderState.SendDate,
-                                          UserGetDate = orderState.UserGetDate,
-                                          CourierNum = orderState.CourierNum,
-                                          Address = orderState.UserShoppingAddress.Address,
-                                          OrderStatus = orderState.OrderState1
-                                      };
-                this.gvAllOrder.DataSource = queryUserOrders.ToList();
-                this.gvAllOrder.DataBind();
+                SellerAllOrder_DataBind();
             }
         }
 
@@ -109,6 +110,7 @@ namespace YinJianEShop.Seller
 
         protected void gvAllOrder_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            //int OrderId = Convert.ToInt32(this.gvAllOrder.DataKeys[Convert.ToInt32(e.CommandArgument)].Value);
             if (e.CommandName == "status")
             {
                 Response.Redirect("/Seller/SellerOrderState.aspx?id=" + e.CommandArgument);

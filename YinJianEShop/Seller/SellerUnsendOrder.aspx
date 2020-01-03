@@ -16,9 +16,9 @@
                 订单号搜索:<asp:TextBox ID="txtOrderNum" runat="server"></asp:TextBox>
                 <asp:Button ID="btnSearch" CssClass="button" runat="server" Text="搜索" OnClick="btnSearch_Click" />
             </div>
-            <asp:GridView ID="gvGoodOrder"  BorderColor="Black" CssClass="gvUserCart" runat="server" OnRowUpdating="gvGoodOrder_RowUpdating" AutoGenerateColumns="False"  >
+            <asp:GridView ID="gvGoodOrder" DataKeyNames="Id"  BorderColor="Black" CssClass="gvUserCart" runat="server" OnRowUpdating="gvGoodOrder_RowUpdating" AutoGenerateColumns="False"  >
             <Columns>
-                <asp:BoundField DataField="OrderId" HeaderText="订单id" />
+                <asp:BoundField DataField="Id" HeaderText="订单id" />
                 <asp:TemplateField HeaderText="预览">
                         <ItemTemplate>
                           <img src='<%# Eval("ImgUrl") %>' width="150px" height="150px" />

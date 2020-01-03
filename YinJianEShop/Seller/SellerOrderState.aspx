@@ -12,7 +12,7 @@
     <form id="formOrderState" runat="server">
         <div>
             <h2>订单详情</h2>
-            <asp:GridView ID="gvOrderState"  BorderColor="Black" CssClass="gvUserCart" runat="server">
+            <asp:GridView ID="gvOrderState"  BorderColor="Black" CssClass="gvUserCart" runat="server" AutoGenerateColumns="False">
                 <Columns>
                     <asp:BoundField DataField="GoodName" HeaderText="商品名" />
                     <asp:TemplateField HeaderText="图片预览">
